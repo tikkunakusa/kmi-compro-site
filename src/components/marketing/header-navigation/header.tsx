@@ -6,7 +6,6 @@ import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
 import { Button } from "@/components/base/buttons/button";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
-import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
 import { DropdownMenuSimple } from "@/components/marketing/header-navigation/dropdown-header-navigation";
 import { cx } from "@/utils/cx";
 
@@ -17,11 +16,11 @@ type HeaderNavItem = {
 };
 
 const headerNavItems: HeaderNavItem[] = [
-    { label: "Products", href: "/products", menu: <DropdownMenuSimple /> },
-    { label: "Services", href: "/Services", menu: <DropdownMenuSimple /> },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Resources", href: "/resources", menu: <DropdownMenuSimple /> },
-    { label: "About", href: "/about" },
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services", menu: <DropdownMenuSimple /> },
+    { label: "Educations", href: "/educations" },
+    { label: "About us", href: "/#about-us" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 const footerNavItems = [
@@ -79,12 +78,6 @@ const MobileFooter = () => {
                     ))}
                 </ul>
             </div>
-            <div className="flex flex-col gap-3">
-                <Button size="lg">Sign up</Button>
-                <Button color="secondary" size="lg">
-                    Log in
-                </Button>
-            </div>
         </div>
     );
 };
@@ -116,9 +109,8 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                         isFloating && "ring-secondary_alt md:rounded-2xl md:bg-primary md:py-3 md:pr-3 md:pl-4 md:shadow-xs md:ring-1",
                     )}
                 >
-                    <div className="flex flex-1 items-center gap-5">
-                        <UntitledLogo className="h-8 md:max-lg:hidden" />
-                        <UntitledLogoMinimal className="hidden h-8 md:inline-block lg:hidden" />
+                    <div className="flex flex-1 items-center justify-between">
+                        <UntitledLogo className="h-8" />
 
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
@@ -174,15 +166,6 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                                 ))}
                             </ul>
                         </nav>
-                    </div>
-
-                    <div className="hidden items-center gap-3 md:flex">
-                        <Button color="secondary" size={isFloating ? "md" : "lg"}>
-                            Log in
-                        </Button>
-                        <Button color="primary" size={isFloating ? "md" : "lg"}>
-                            Sign up
-                        </Button>
                     </div>
 
                     {/* Mobile menu and menu trigger */}

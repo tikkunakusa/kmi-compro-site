@@ -42,8 +42,8 @@
     --text-display-2xl--line-height: calc(var(--spacing) * 22.5);
     --text-display-2xl--letter-spacing: -1.44px;
 
-    /* MAX WIDTH */
-    --max-width-container: 1280px;
+    /* MAX WIDTH
+    --max-width-container: 1280px; */
 
     /* BREAKPOINTS */
     --breakpoint-xxs: 320px;
@@ -95,16 +95,19 @@
         0% {
             transform: translateX(0);
         }
+
         100% {
             transform: translateX(-100%);
         }
     }
 
     @keyframes caret-blink {
+
         0%,
         50% {
             opacity: 1;
         }
+
         51%,
         100% {
             opacity: 0;
@@ -117,18 +120,18 @@
     --color-white: rgb(255 255 255);
     --color-black: rgb(0 0 0);
 
-    --color-brand-25: rgb(252 250 255);
-    --color-brand-50: rgb(249 245 255);
-    --color-brand-100: rgb(244 235 255);
-    --color-brand-200: rgb(233 215 254);
-    --color-brand-300: rgb(214 187 251);
-    --color-brand-400: rgb(182 146 246);
-    --color-brand-500: rgb(158 119 237);
-    --color-brand-600: rgb(127 86 217);
-    --color-brand-700: rgb(105 65 198);
-    --color-brand-800: rgb(83 56 158);
-    --color-brand-900: rgb(66 48 125);
-    --color-brand-950: rgb(44 28 95);
+    --color-brand-25: rgb(245 249 251);
+    --color-brand-50: rgb(236 244 247);
+    --color-brand-100: rgb(216 232 238);
+    --color-brand-200: rgb(188 214 223);
+    --color-brand-300: rgb(156 194 206);
+    --color-brand-400: rgb(124 173 189);
+    --color-brand-500: rgb(91 140 157);
+    --color-brand-600: rgb(77 120 135);
+    --color-brand-700: rgb(64 101 114);
+    --color-brand-800: rgb(52 83 94);
+    --color-brand-900: rgb(42 67 76);
+    --color-brand-950: rgb(28 45 51);
 
     --color-error-25: rgb(255 251 250);
     --color-error-50: rgb(254 243 242);
