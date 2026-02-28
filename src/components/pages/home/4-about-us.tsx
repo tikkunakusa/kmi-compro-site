@@ -1,6 +1,6 @@
 export const AboutUs = () => {
     return (
-        <section className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB] p-8">
+        <section id="about-us" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB] p-8">
             <div className="bg-primary rounded-xl p-8">
                 <h3 className="text-xl font-bold tracking-tight text-fg-primary sm:text-2xl">
                     Delivering Measurable Legal and Business Outcomes

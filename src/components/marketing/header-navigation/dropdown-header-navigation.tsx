@@ -1,37 +1,31 @@
-import { BookClosed, FileCode01, LifeBuoy01, PlayCircle, Stars02 } from "@untitledui/icons";
+import { BookmarkCheck, Bank, Database03, Briefcase01 } from "@untitledui/icons";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
 
 const items = [
     {
-        title: "Blog",
-        subtitle: "The latest industry new and guides curated by our expert team.",
-        href: "/blog",
-        Icon: BookClosed,
+        title: "Legal Consultant",
+        subtitle: "Legal advisory services for corporations and individuals",
+        href: "/services#legal",
+        Icon: BookmarkCheck,
     },
     {
-        title: "Customer stories",
-        subtitle: "Learn how our customers are using Untitled UI to 10x their growth.",
-        href: "/customer-stories",
-        Icon: Stars02,
+        title: "Management Consultant",
+        subtitle: "Management advisory services to help organizations improvement",
+        href: "/services#management",
+        Icon: Briefcase01,
     },
     {
-        title: "Video tutorials",
-        subtitle: "Get up and running on our newest features and in-depth guides.",
-        href: "/tutorials",
-        Icon: PlayCircle,
+        title: "IT Consultant",
+        subtitle: "Support for organizations in managing technology-related risks",
+        href: "/services#tech",
+        Icon: Database03,
     },
     {
-        title: "Documentation",
-        subtitle: "In-depth articles on our tools and technologies to empower teams.",
-        href: "/docs",
-        Icon: FileCode01,
-    },
-    {
-        title: "Help and support",
-        subtitle: "Need help with something? Our expert team is here to help 24/7.",
-        href: "/help",
-        Icon: LifeBuoy01,
-    },
+        title: "Financial Management and Accounting Consultant",
+        subtitle: "Support on comprehensive financial management and accounting services",
+        href: "/services#finance",
+        Icon: Bank,
+    }
 ];
 
 export const DropdownMenuSimple = () => {

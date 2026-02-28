@@ -8,6 +8,7 @@ import "@/styles/globals.css";
 import { notFound } from 'next/navigation';
 import { routing } from "@/i18n/routing";
 import type { ReactNode } from "react";
+import { Header } from "@/components/marketing/header-navigation/header";
 
 type Props = {
     children: ReactNode;
@@ -41,7 +42,10 @@ export default async function LocaleLayout({ children, params }: Props) {
             <body className={cx(inter.variable, "bg-primary antialiased")}>
                 <NextIntlClientProvider>
                     <RouteProvider>
-                        <Theme>{children}</Theme>
+                        <Theme>
+                            <Header className="bg-primary" />
+                            {children}
+                        </Theme>
                     </RouteProvider>
                 </NextIntlClientProvider>
             </body>

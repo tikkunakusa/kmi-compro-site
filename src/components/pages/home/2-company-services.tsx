@@ -5,18 +5,22 @@ export const CompanyServices = () => {
         {
             title: "Legal Consultant",
             description: "We provide comprehensive legal advisory services for corporations and individuals, focusing on compliance, contractual matters, and regulatory risk management tailored to your specific business context.",
+            href: "/services#legal",
         },
         {
             title: "Management Consultant",
             description: "Our management advisory services help organizations improve performance, strengthen governance, and address complex operational challenges with strategic and measurable solutions.",
+            href: "/services#management",
         },
         {
             title: "IT Consultant",
             description: "We support organizations in managing technology-related risks, from digital transformation and system governance to cybersecurity and data protection advisory.",
+            href: "/services#tech",
         },
         {
-            title: "Financial Management and Accounting Consultant",
-            description: "We provide comprehensive financial management and accounting services, including budgeting, reporting, compliance, cash flow optimization, and strategic financial planning to support sustainable business growth.",
+            title: "Financial and Accounting Consultant",
+            description: "We provide integrated solutions covering financial reporting, analysis, accounting systems implementation, governance frameworks, and capacity building.",
+            href: "/services#finance",
         },
     ]
     return (
@@ -32,7 +36,7 @@ export const CompanyServices = () => {
                             <h4 className="font-semibold text-2xl tracking-tight text-fg-primary sm:text-xl">{service.title}</h4>
                             <p className="text-fg-secondary text-sm text-justify">{service.description}</p>
                         </div>
-                        <Button variant="primary" size="md" className="self-start">
+                        <Button variant="primary" size="md" className="self-start" href={service.href}>
                             Learn More
                         </Button>
                     </div>

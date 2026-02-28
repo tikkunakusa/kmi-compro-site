@@ -20,7 +20,7 @@ const headerNavItems: HeaderNavItem[] = [
     { label: "Services", href: "/services", menu: <DropdownMenuSimple /> },
     { label: "Educations", href: "/educations" },
     { label: "About us", href: "/#about-us" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Contact", href: "/#contact-us" },
 ];
 
 const footerNavItems = [
