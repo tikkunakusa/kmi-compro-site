@@ -6,6 +6,7 @@ import { ManagementConsultant } from "@/components/pages/services/2-management";
 import { TechConsultant } from "@/components/pages/services/3-tech";
 import { FinanceConsultant } from "@/components/pages/services/4-finance";
 import EndContentsContactUs from "@/components/marketing/contact-us/end-contents";
+import Footer from "@/components/pages/footer/footer";
 
 const HomeScreen = () => {
     return (
@@ -15,6 +16,7 @@ const HomeScreen = () => {
             <TechConsultant />
             <FinanceConsultant />
             <EndContentsContactUs />
+            <Footer/>
         </Fragment>
     );
 };

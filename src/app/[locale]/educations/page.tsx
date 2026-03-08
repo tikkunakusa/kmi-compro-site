@@ -3,6 +3,7 @@
 import HeroTitleServices from "@/components/marketing/header-navigation/base-components/hero-title-services";
 import EndContentsContactUs from "@/components/marketing/contact-us/end-contents";
 import TikTokCarousel from "@/components/marketing/tiktok-education/TikTokCarousel";
+import Footer from "@/components/pages/footer/footer";
 
 const HomeScreen = () => {
     const videos = [
@@ -32,6 +33,7 @@ const HomeScreen = () => {
                 />
             </main>
             <EndContentsContactUs />
+            <Footer/>
         </>
     );
 };

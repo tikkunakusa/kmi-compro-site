@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { Inter } from "next/font/google";
 import { RouteProvider } from "@/providers/router-provider";
 import { Theme } from "@/providers/theme";
@@ -14,6 +15,13 @@ type Props = {
     children: ReactNode;
     params: Promise<{ locale: string }>;
 };
+
+const headingFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 const inter = Inter({
     subsets: ["latin"],
@@ -38,7 +46,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         notFound();
     }
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className={headingFont.variable}>
             <body className={cx(inter.variable, "bg-primary antialiased")}>
                 <NextIntlClientProvider>
                     <RouteProvider>
