@@ -8,7 +8,7 @@ export default function EndContentsContactUs() {
                 <p className="mt-4 text-lg text-fg-secondary">
                     Our team is ready to support your organization with practical insights and reliable advisory services.
                 </p>
-                <Button variant="primary" size="lg" className="mt-6" href="/#contact-us">
+                <Button size="lg" className="mt-6" href="/#contact-us">
                     Request a Consultation
                 </Button>
             </div>

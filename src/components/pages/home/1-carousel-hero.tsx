@@ -15,7 +15,7 @@ export const CarouselHero = () => {
                 </Carousel.NextTrigger>
 
                 <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2">
-                    <Carousel.Indicator />
+                    <Carousel.Indicator index={100}/>
                 </div>
 
                 <Carousel.Content className="gap-2">
