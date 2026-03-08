@@ -21,7 +21,7 @@ const items = [
         Icon: Database03,
     },
     {
-        title: "Financial Management and Accounting Consultant",
+        title: "Financial and Accounting Consultant",
         subtitle: "Support on comprehensive financial management and accounting services",
         href: "/services#finance",
         Icon: Bank,

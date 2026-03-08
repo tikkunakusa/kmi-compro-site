@@ -36,7 +36,7 @@ export const CompanyServices = () => {
                             <h4 className="font-semibold text-2xl tracking-tight text-fg-primary sm:text-xl">{service.title}</h4>
                             <p className="text-fg-secondary text-sm text-justify">{service.description}</p>
                         </div>
-                        <Button variant="primary" size="md" className="self-start" href={service.href}>
+                        <Button size="md" className="self-start" href={service.href}>
                             Learn More
                         </Button>
                     </div>
