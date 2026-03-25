@@ -17,10 +17,10 @@ type Props = {
 };
 
 const headingFont = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-heading",
-  display: "swap",
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700", "800"],
+    variable: "--font-heading",
+    display: "swap",
 });
 
 const inter = Inter({
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
     themeColor: "#FFFFFF",
-    colorScheme: "light dark",
+    colorScheme: "light",
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
