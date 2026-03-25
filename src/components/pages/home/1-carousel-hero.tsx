@@ -105,7 +105,18 @@ export function HeroCarousel() {
                                 __html: slides[current].description,
                             }}
                         />
-                        <Button className="rounded-xl px-6 py-3">Contact Us</Button>
+                        <a href="/#contact-us">
+                            <Button
+                                onClick={() => {
+                                    document
+                                        .getElementById("contact-us")
+                                        ?.scrollIntoView({ behavior: "smooth" });
+                                }}
+                                className="rounded-xl px-6 py-3"
+                            >
+                                Contact Us
+                            </Button>
+                        </a>
                     </motion.div>
 
                     {/* Indicators */}

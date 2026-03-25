@@ -16,7 +16,7 @@ export const ContactUs = () => {
         services: "legal",
         message: "",
     })
-    const submitForm = async ()=> {
+    const submitForm = async () => {
         try {
             const response = await fetch("/api/contact-us", {
                 method: "POST",
@@ -45,13 +45,13 @@ export const ContactUs = () => {
     }
     return (
         <section id="contact-us" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
-            <div className="py-16 px-8 text-center">
+            <div className="py-8 md:py-16 px-2 md:px-8 text-center">
                 <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">Contact Us</h1>
                 <p className="mt-4 text-lg text-fg-secondary">Let's discuss your legal and business challenges.</p>
-                <div className="text-left bg-white rounded-lg p-6 m-8">
+                <div className="text-left bg-white rounded-lg p-4 md:p-6 m-8">
                     <h2 className="underline text-fg-primary">Send us a message</h2>
                     <form className="mt-4 space-y-4" onSubmit={submitForm}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
                             <Input
                                 isRequired
                                 key="first_name"
@@ -134,7 +134,7 @@ export const ContactUs = () => {
                                 rows={5}
                                 tooltip="Tell us about your challenges or maybe related to the other service you want to ask about"
                                 value={formValue.message}
-                                onChange={(value)=> setFormValue({...formValue, message: value})}
+                                onChange={(value) => setFormValue({ ...formValue, message: value })}
                                 placeholder="e.g. I have a question about..."
                             />
                         </div>
