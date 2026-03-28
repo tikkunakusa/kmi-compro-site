@@ -16,28 +16,42 @@ export const ContactUs = () => {
         services: "legal",
         message: "",
     })
+    // const formTime = Date.now();
     const submitForm = async () => {
         try {
-            const response = await fetch("/api/contact-us", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formValue),
-            });
-            if (response.ok) {
-                alert("Inquiry sent successfully!");
-                setFormValue({
-                    first_name: "",
-                    last_name: "",
-                    phone_number: "",
-                    email: "",
-                    services: "legal",
-                    message: "",
-                });
-            } else {
-                alert("Failed to send inquiry. Please try again.");
-            }
+            const name = `Hi, my name is ${formValue.first_name} ${formValue.last_name}.`;
+            const service = `I need ${formValue.services === "legal" ? "a Legal Consultation" : formValue.services === "tech" ? "an IT Consultation" : formValue.services === "management" ? "a Management Consultation" : "a Financial & Accounting Consultation"}.`;
+            const message = `I have a question about ${formValue.message}.`;
+            const contactInfo = `Please contact me through phone at ${formValue.phone_number} or email ${formValue.email}.`;
+            const fullMessage = `${name} ${service} ${message}`;
+            const fullMailtoLink = `mailto:tiko.aqsa@gmail.com?body=${encodeURIComponent(fullMessage)}%0D%0A%0D%0A${encodeURIComponent(contactInfo)}`;
+            window.open(fullMailtoLink, '_blank');
+
+            // const response = await fetch("/api/contact-us", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({
+            //         ...formValue,
+            //         name: `${formValue.first_name} ${formValue.last_name}`,
+            //         website: "",
+            //         _formTime: formTime,
+            //     }),
+            // });
+            // if (response.ok) {
+            //     alert("Inquiry sent successfully!");
+            //     setFormValue({
+            //         first_name: "",
+            //         last_name: "",
+            //         phone_number: "",
+            //         email: "",
+            //         services: "legal",
+            //         message: "",
+            //     });
+            // } else {
+            //     alert("Failed to send inquiry. Please try again.");
+            // }
         } catch (error) {
             console.error("Error submitting form:", error);
             alert("An error occurred while sending your inquiry. Please try again.");
@@ -95,6 +109,7 @@ export const ContactUs = () => {
                                     return emailRegex.test(value) ? true : "Invalid email format";
                                 }}
                             />
+                            <input type="text" name="website" className="hidden" />
                             <RadioGroup
                                 aria-label="Choose Service"
                                 name="Product or service"
