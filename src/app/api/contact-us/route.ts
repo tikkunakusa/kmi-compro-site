@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendMail } from "@/lib/mailer";
-import {
-    userConfirmationTemplate,
-    adminNotificationTemplate,
-} from "@/lib/emailTemplates";
+// import { sendMail } from "@/lib/mailer";
+// import {
+//     userConfirmationTemplate,
+//     adminNotificationTemplate,
+// } from "@/lib/emailTemplates";
 import { rateLimit } from "@/lib/rateLimiter";
 
 export async function POST(req: NextRequest) {
@@ -56,18 +56,18 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Send emails
-        await sendMail({
-            to: email,
-            subject: "Pesan kamu sudah kami terima",
-            html: userConfirmationTemplate(name, message),
-        });
+        // // Send emails
+        // await sendMail({
+        //     to: email,
+        //     subject: "Pesan kamu sudah kami terima",
+        //     html: userConfirmationTemplate(name, message),
+        // });
 
-        await sendMail({
-            to: process.env.EMAIL_TO_ADMIN as string,
-            subject: "New Contact Inquiry",
-            html: adminNotificationTemplate(name, email, message),
-        });
+        // await sendMail({
+        //     to: process.env.EMAIL_TO_ADMIN as string,
+        //     subject: "New Contact Inquiry",
+        //     html: adminNotificationTemplate(name, email, message),
+        // });
 
         return NextResponse.json({ success: true });
     } catch (error) {
