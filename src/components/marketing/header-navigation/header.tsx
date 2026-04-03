@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
-import { Button } from "@/components/base/buttons/button";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { DropdownMenuSimple } from "@/components/marketing/header-navigation/dropdown-header-navigation";
 import { cx } from "@/utils/cx";
@@ -21,17 +20,6 @@ const headerNavItems: HeaderNavItem[] = [
     { label: "Educations", href: "/educations" },
     { label: "About us", href: "/#about-us" },
     { label: "Contact", href: "/#contact-us" },
-];
-
-const footerNavItems = [
-    { label: "About us", href: "/" },
-    { label: "Press", href: "/products" },
-    { label: "Careers", href: "/resources" },
-    { label: "Legal", href: "/pricing" },
-    { label: "Support", href: "/pricing" },
-    { label: "Contact", href: "/pricing" },
-    { label: "Sitemap", href: "/pricing" },
-    { label: "Cookie settings", href: "/pricing" },
 ];
 
 const MobileNavItem = (props: { className?: string; label: string; href?: string; children?: ReactNode }) => {
@@ -61,24 +49,6 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
             </button>
             {isOpen && <div>{props.children}</div>}
         </li>
-    );
-};
-
-const MobileFooter = () => {
-    return (
-        <div className="flex flex-col gap-8 border-t border-secondary px-4 py-6">
-            <div>
-                <ul className="grid grid-flow-col grid-cols-2 grid-rows-4 gap-x-6 gap-y-3">
-                    {footerNavItems.map((navItem) => (
-                        <li key={navItem.label}>
-                            <Button color="link-gray" size="lg" href={navItem.href}>
-                                {navItem.label}
-                            </Button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
     );
 };
 
@@ -220,8 +190,6 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                                             ),
                                         )}
                                     </ul>
-
-                                    <MobileFooter />
                                 </nav>
                             </AriaDialog>
                         </AriaPopover>

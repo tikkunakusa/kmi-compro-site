@@ -69,7 +69,7 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="first_name"
-                                hint="Please enter your first name"
+                                hint="Enter your first name"
                                 label="First Name"
                                 placeholder="e.g. John"
                                 value={formValue.first_name}
@@ -78,7 +78,7 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="last_name"
-                                hint="Please enter your last name"
+                                hint="Enter your last name"
                                 label="Last Name"
                                 value={formValue.last_name}
                                 onChange={(value) => setFormValue({ ...formValue, last_name: value })}
@@ -87,7 +87,7 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="phone_number"
-                                hint="Please enter your phone number"
+                                hint="Enter your phone number"
                                 label="Phone Number"
                                 tooltip="We'll reach you through this email/phone number"
                                 placeholder="e.g. 081234567890"
@@ -98,7 +98,7 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="email"
-                                hint="Please enter your email address"
+                                hint="Enter your email address"
                                 label="Email"
                                 tooltip="We'll reach you through this email/phone number"
                                 placeholder="e.g. john.doe@example.com"
@@ -144,7 +144,7 @@ export const ContactUs = () => {
                             <TextArea
                                 isRequired
                                 key="message"
-                                hint="Please enter your message"
+                                hint="Enter your message"
                                 label="Message"
                                 rows={5}
                                 tooltip="Tell us about your challenges or maybe related to the other service you want to ask about"
@@ -153,7 +153,7 @@ export const ContactUs = () => {
                                 placeholder="e.g. I have a question about..."
                             />
                         </div>
-                        <Button type="submit" className="w-full" >
+                        <Button type="submit" className="w-full" size="lg" >
                             Send Message
                         </Button>
                     </form>
