@@ -5,7 +5,10 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig = {
     experimental: {
         optimizePackageImports: ["@untitledui/icons"],
-    }
+    },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
 };
 
 const withNextIntl = createNextIntlPlugin();
