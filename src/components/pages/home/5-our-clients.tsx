@@ -1,12 +1,14 @@
 import { clients } from "@/utils/clients-data"
+import { useTranslations } from "next-intl"
 import Image from "next/image"
 
 export const OurClients = () => {
+    const t = useTranslations("HomePage.OurClients")
     return (
         <section id="our-clients" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
             <div className="py-16 px-8 text-center">
-                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">Our Clients</h1>
-                <p className="mt-4 text-lg text-fg-secondary">Guiding organizations across industries toward greater confidence, compliance, and long-term success.</p>
+                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("Title")}</h1>
+                <p className="mt-4 text-lg text-fg-secondary">{t("Subtitle")}</p>
             </div>
             <div className="flex flex-wrap justify-center gap-y-6">
 

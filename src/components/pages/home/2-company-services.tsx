@@ -1,33 +1,35 @@
 import { Button } from "@/components/base/buttons/button"
+import { useTranslations } from 'next-intl';
 
 export const CompanyServices = () => {
+    const t = useTranslations();
     const services = [
         {
-            title: "Legal Consultant",
-            description: "We provide comprehensive legal advisory services for corporations and individuals, focusing on compliance, contractual matters, and regulatory risk management tailored to your specific business context.",
+            title: t("Header.Services.Legal.Title"),
+            description: t("Header.Services.Legal.Detail"),
             href: "/services#legal",
         },
         {
-            title: "Management Consultant",
-            description: "Our management advisory services help organizations improve performance, strengthen governance, and address complex operational challenges with strategic and measurable solutions.",
+            title: t("Header.Services.Management.Title"),
+            description: t("Header.Services.Management.Detail"),
             href: "/services#management",
         },
         {
-            title: "IT Consultant",
-            description: "We support organizations in managing technology-related risks, from digital transformation and system governance to cybersecurity and data protection advisory.",
+            title: t("Header.Services.IT.Title"),
+            description: t("Header.Services.IT.Detail"),
             href: "/services#tech",
         },
         {
-            title: "Financial and Accounting Consultant",
-            description: "We provide integrated solutions covering financial reporting, analysis, accounting systems implementation, governance frameworks, and capacity building.",
+            title: t("Header.Services.Financial.Title"),
+            description: t("Header.Services.Financial.Detail"),
             href: "/services#finance",
         },
     ]
     return (
         <section className="w-full max-w-container bg-primary items-center justify-center text-center">
             <div className="py-16 px-8 text-center">
-                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">One Stop Solution</h1>
-                <p className="mt-4 text-lg text-fg-secondary">Specialized advisory services designed to help organizations manage risk, ensure compliance, and achieve sustainable business growth.</p>
+                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("HomePage.Solutions.Title")}</h1>
+                <p className="mt-4 text-lg text-fg-secondary">{t("HomePage.Solutions.Subtitle")}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8 px-8 pb-8">
                 {services.map((service, index) => (
@@ -37,7 +39,7 @@ export const CompanyServices = () => {
                             <p className="text-fg-secondary text-sm text-justify">{service.description}</p>
                         </div>
                         <Button size="md" className="self-start" href={service.href}>
-                            Learn More
+                            {t("General.LearnMore")}
                         </Button>
                     </div>
                 ))}

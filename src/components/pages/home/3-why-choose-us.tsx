@@ -1,23 +1,26 @@
+import { useTranslations } from "next-intl"
+
 export const WhyChooseUs = () => {
+    const t = useTranslations("HomePage.Reasons")
     const reasons = [
         {
-            title: "Experienced Advisory Team",
-            description: "Supported by experienced and trusted consultants and trainers with cross-disciplinary expertise in legal, technology, management, and financial advisory.",
+            title: t("1.Title"),
+            description: t("1.Description"),
         },
         {
-            title: "Proven Experience",
-            description: "Our team has demonstrated proven experience across various industries, delivering solutions grounded in practice, not assumptions."
+            title: t("2.Title"),
+            description: t("2.Description"),
         },
         {
-            title: "Adaptive & Practical Solutions",
-            description: "We adapt to existing systems, regulations, and business environments to provide practical and relevant solutions aligned with your organization\u2019s needs.",
-        },
+            title: t("3.Title"),
+            description: t("3.Description"),
+        }
     ]
     return (
         <section className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
             <div className="py-16 px-8 text-center">
-                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">Why Choose Us</h1>
-                <p className="mt-4 text-lg text-fg-secondary">We deliver independent advisory services to help organizations reduce risk and make informed decisions in a professional and responsible manner.</p>
+                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("Title")}</h1>
+                <p className="mt-4 text-lg text-fg-secondary">{t("Subtitle")}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 px-8 pb-8">
                 {reasons.map((reason, index) => (
@@ -31,4 +34,4 @@ export const WhyChooseUs = () => {
             </div>
         </section>
     )
-}   
+} 

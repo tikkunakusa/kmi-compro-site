@@ -1,34 +1,35 @@
 import { BookmarkCheck, Bank, Database03, Briefcase01 } from "@untitledui/icons";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
-
-const items = [
-    {
-        title: "Legal Consultant",
-        subtitle: "Legal advisory services for corporations and individuals",
-        href: "/services#legal",
-        Icon: BookmarkCheck,
-    },
-    {
-        title: "Management Consultant",
-        subtitle: "Management advisory services to help organizations improvement",
-        href: "/services#management",
-        Icon: Briefcase01,
-    },
-    {
-        title: "IT Consultant",
-        subtitle: "Support for organizations in managing technology-related risks",
-        href: "/services#tech",
-        Icon: Database03,
-    },
-    {
-        title: "Financial and Accounting Consultant",
-        subtitle: "Support on comprehensive financial management and accounting services",
-        href: "/services#finance",
-        Icon: Bank,
-    }
-];
+import { useTranslations } from 'next-intl';
 
 export const DropdownMenuSimple = () => {
+    const t = useTranslations();
+    const items = [
+        {
+            title: t("Header.Services.Legal.Title"),
+            subtitle: t("Header.Services.Legal.Subtitle"),
+            href: "/services#legal",
+            Icon: BookmarkCheck,
+        },
+        {
+            title: t("Header.Services.Management.Title"),
+            subtitle: t("Header.Services.Management.Subtitle"),
+            href: "/services#management",
+            Icon: Briefcase01,
+        },
+        {
+            title: t("Header.Services.IT.Title"),
+            subtitle: t("Header.Services.IT.Subtitle"),
+            href: "/services#tech",
+            Icon: Database03,
+        },
+        {
+            title: t("Header.Services.Financial.Title"),
+            subtitle: t("Header.Services.Financial.Subtitle"),
+            href: "/services#finance",
+            Icon: Bank,
+        }
+    ];
     return (
         <div className="px-3 pb-2 md:max-w-84 md:p-0">
             <nav className="overflow-hidden rounded-2xl bg-primary py-2 shadow-xs ring-1 ring-secondary_alt md:p-2 md:shadow-lg">

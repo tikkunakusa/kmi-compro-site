@@ -147,14 +147,6 @@ export default function Footer() {
           <p>
             © PT.Konsultan Sistem Manajemen Indonesia. All Rights Reserved
           </p>
-
-          <Link
-            href="/admin"
-            className="hover:text-gray-900 transition"
-          >
-            Admin Login
-          </Link>
-
         </div>
       </div>
     </footer>

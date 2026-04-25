@@ -4,31 +4,29 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/base/buttons/button";
 import { ChevronLeft, ChevronRight } from "@untitledui/icons";
-
-const slides = [
-    {
-        title: "Your Strategic Partner in Legal, Technology, Financial, and Management Excellence",
-        description:
-            "We assist organizations in navigating <span class='font-semibold text-[#88b9ca]'>legal risk</span>, <span class='font-semibold text-[#88b9ca]'>digital transformation</span>, and <span class='font-semibold text-[#88b9ca]'>governance challenges</span> with clarity, confidence, and practical insight.",
-    },
-    {
-        title: "Driving Digital Transformation with Confidence",
-        description:
-            "Empowering your organization through <span class='font-semibold text-[#88b9ca]'>innovative technology</span> and <span class='font-semibold text-[#88b9ca]'>strategic execution</span>.",
-    },
-    {
-        title: "Expert Guidance for Complex Business Challenges",
-        description:
-            "Delivering <span class='font-semibold text-[#88b9ca]'>practical insights</span> and <span class='font-semibold text-[#88b9ca]'>tailored solutions</span> for your organization.",
-    },
-    {
-        title: "Financial and Accounting Management Excellence",
-        description:
-            "Enhancing <span class='font-semibold text-[#88b9ca]'>financial performance</span> through <span class='font-semibold text-[#88b9ca]'>robust accounting</span> and <span class='font-semibold text-[#88b9ca]'>data-driven decisions</span>.",
-    },
-];
+import { useTranslations } from 'next-intl';
 
 export function HeroCarousel() {
+    const t = useTranslations();
+
+    const slides = [
+        {
+            title: t("HomePage.Header.1.Title"),
+            description: t("HomePage.Header.1.Subtitle"),
+        },
+        {
+            title: t("HomePage.Header.2.Title"),
+            description: t("HomePage.Header.2.Subtitle"),
+        },
+        {
+            title: t("HomePage.Header.3.Title"),
+            description: t("HomePage.Header.3.Subtitle"),
+        },
+        {
+            title: t("HomePage.Header.4.Title"),
+            description: t("HomePage.Header.4.Subtitle"),
+        },
+    ];
     const [current, setCurrent] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const containerRef = useRef<HTMLDivElement | null>(null);
@@ -114,7 +112,7 @@ export function HeroCarousel() {
                                 }}
                                 className="rounded-xl px-6 py-3"
                             >
-                                Contact Us
+                                {t("General.ContactUs")}
                             </Button>
                         </a>
                     </motion.div>

@@ -3,16 +3,18 @@ import EndContentsContactUs from "@/components/marketing/contact-us/end-contents
 import Footer from "@/components/pages/footer/footer";
 import TikTokCarousel from "@/components/application/tiktok-carousel/tiktok-carousel";
 import { getSheetData } from "@/lib/googleSheets";
+import { getTranslations } from "next-intl/server";
 
 export const revalidate = 60;
 
 const EducationPage = async () => {
+    const t = await getTranslations("Education")
     const videos = await getSheetData();
     return (
         <>
             <HeroTitleServices
-                title="Legal, Technology, and Governance Insights"
-                subtitle="Curated educational content sharing practical perspectives on legal compliance, technology risk, and organizational governance."
+                title={t("Title")}
+                subtitle={t("Subtitle")}
             />
             <TikTokCarousel fetchedVideos={videos.slice(0, 7)} />
             <EndContentsContactUs />

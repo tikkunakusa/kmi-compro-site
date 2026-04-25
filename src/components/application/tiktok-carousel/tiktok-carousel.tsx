@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import { useRef, useState, useEffect } from "react";
 import { TikTokEmbed } from 'react-social-media-embed';
 
@@ -12,6 +13,7 @@ type VideoItem = {
 };
 
 const TikTokCarousel = ({ fetchedVideos }: { fetchedVideos: VideoItem[] }) => {
+    const t = useTranslations("Education");
     const scrollRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isMounted, setIsMounted] = useState(false);
@@ -75,10 +77,10 @@ const TikTokCarousel = ({ fetchedVideos }: { fetchedVideos: VideoItem[] }) => {
     return (
         <main className="max-w-6xl mx-auto py-10">
             <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">
-                Featured Videos ({videos.length})
+                {t("VideoTitle")} ({videos.length})
             </h1>
             <p className="mt-4 text-lg text-fg-secondary">
-                The content provided is for general educational purposes and does not constitute legal advice.
+                {t("VideoSubtitle")}
             </p>
 
             {/* Carousel */}

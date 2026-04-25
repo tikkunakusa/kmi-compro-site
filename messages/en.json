@@ -1,5 +1,172 @@
 {
+    "General": {
+        "LearnMore": "Learn More",
+        "ContactUs": "Contact Us",
+        "MoreInfo": "More Information",
+        "InterestedInOurServicesTitle": "Interested in a deeper discussion?",
+        "IntersestedInOurServicesSubtitle": "Our team is ready to support your organization with practical insights and reliable advisory services.",
+        "RequestConsultation": "Request a Consultation"
+    },
     "HomePage": {
-        "title": "Hello world!"
+        "Header": {
+            "1": {
+                "Title": "Your Strategic Partner in Legal, Technology, Financial, and Management Excellence",
+                "Subtitle": "We assist organizations in navigating legal risk, digital transformation, and governance challenges with clarity, confidence, and practical insight."
+            },
+            "2": {
+                "Title": "Driving Digital Transformation with Confidence",
+                "Subtitle": "Empowering your organization through innovative technology and strategic execution."
+            },
+            "3": {
+                "Title": "Expert Guidance for Complex Business Challenges",
+                "Subtitle": "Delivering practical insights and tailored solutions for your organization."
+            },
+            "4": {
+                "Title": "Financial and Accounting Management Excellence",
+                "Subtitle": "Enhancing financial performance through robust accounting and data-driven decisions."
+            }
+        },
+        "Solutions": {
+            "Title": "One Stop Solution",
+            "Subtitle": "Specialized advisory services designed to help organizations manage risk, ensure compliance, and achieve sustainable business growth."
+        },
+        "Reasons": {
+            "Title": "Why Choose Us",
+            "Subtitle": "We deliver independent advisory services to help organizations reduce risk and make informed decisions in a professional and responsible manner.",
+            "1": {
+                "Title": "Experienced Advisory Team",
+                "Description": "Supported by experienced and trusted consultants and trainers with cross-disciplinary expertise in legal, technology, management, and financial advisory."
+            },
+            "2": {
+                "Title": "Proven Experience",
+                "Description": "Our team has demonstrated proven experience across various industries, delivering solutions grounded in practice, not assumptions."
+            },
+            "3": {
+                "Title": "Adaptive & Practical Solutions",
+                "Description": "We adapt to existing systems, regulations, and business environments to provide practical and relevant solutions aligned with your organization's needs."
+            }
+        },
+        "Deliverables": {
+            "Title": "Delivering Measurable Legal and Business Outcomes",
+            "Subtitle": "We provide independent advisory services that prioritize quality, professionalism, and accountability, supporting organizations in managing risk and achieving sustainable results.",
+            "AboutUs": {
+                "Title": "About Us",
+                "Description": "Konsultan Manajemen Indonesia (KMI) is an independent legal, technology, management, and finance consulting firm established in 2018. We partner with organizations to deliver professional advisory services that help reduce risk, strengthen governance, and support sustainable business operations. We are committed to becoming a trusted advisory partner by providing services that emphasize reliability, professionalism, responsiveness, and measurable value."
+            },
+            "Vision": {
+                "Title": "Our Vision",
+                "Description": "To become a trusted legal, technology, and management consulting firm that supports organizations in improving productivity, compliance, and overall performance."
+            },
+            "Mission": {
+                "Title": "Our Mission",
+                "Description": "To deliver advisory services that prioritize quality, professionalism, and practical integration, helping clients achieve their strategic objectives with confidence."
+            }
+        },
+        "OurClients": {
+            "Title": "Our Clients",
+            "Subtitle": "Guiding organizations across industries toward greater confidence, compliance, and long-term success."
+        },
+        "ContactUs": {
+            "Title": "Contact Us",
+            "Subtitle": "Let's discuss your legal and business challenges.",
+            "SendUsAMessage": "Send Us a Message",
+            "FirstName": "First Name",
+            "FirstNameSubtitle": "Enter your first name",
+            "LastName": "Last Name",
+            "LastNameSubtitle": "Enter your last name",
+            "PhoneNumber": "Phone Number",
+            "PhoneNumberSubtitle": "Enter your phone number",
+            "Email": "Email",
+            "EmailSubtitle": "Enter your email address",
+            "Message": "Message",
+            "MessageSubtitle": "Enter your message",
+            "ChooseService": "Choose Service",
+            "MessagePlaceholder": "e.g. I would like to discuss...",
+            "ReachingYouOut": "We'll reach you through this email/phone number",
+            "MessageTooltip": "Tell us about your challenges or maybe related to the other service you want to ask about",
+            "LegalConsultation": "Legal Consultation",
+            "ITConsultation": "IT Consultation",
+            "ManagementConsultation": "Management Consultation",
+            "FinancialAccountingConsultation": "Financial & Accounting Consultation",
+            "SendMessage": "Send Message",
+            "HiMyNameIs": "Hello, my name is {firstName} {lastName}.",
+            "MyServiceIs": "I want to discuss the {service} service.",
+            "IWantToDiscuss": "I have a question about {message}.",
+            "ContactMe": "Please contact me at {phone_number} or {email}."
+        }
+    },
+    "Header": {
+        "List": {
+            "Home": "Home",
+            "AboutUs": "About Us",
+            "Services": "Services",
+            "Contact": "Contact",
+            "Education": "Education"
+        },
+        "Services": {
+            "Legal": {
+                "Title": "Legal Consultant",
+                "Subtitle": "Legal advisory services for corporations and individuals",
+                "Detail": "We provide comprehensive legal advisory services for corporations and individuals, focusing on compliance, contractual matters, and regulatory risk management tailored to your specific business context."
+            },
+            "Management": {
+                "Title": "Management Consultant",
+                "Subtitle": "Management advisory services to help organizations improvement",
+                "Detail": "Our management advisory services help organizations improve performance, strengthen governance, and address complex operational challenges with strategic and measurable solutions."
+            },
+            "IT": {
+                "Title": "IT Consultant",
+                "Subtitle": "Support for organizations in managing technology-related risks",
+                "Detail": "We support organizations in managing technology-related risks, from digital transformation and system governance to cybersecurity and data protection advisory."
+            },
+            "Financial": {
+                "Title": "Financial and Accounting Consultant",
+                "Subtitle": "Support on comprehensive financial management and accounting services",
+                "Detail": "We provide integrated solutions covering financial reporting, analysis, accounting systems implementation, governance frameworks, and capacity building."
+            }
+        }
+    },
+    "Services": {
+        "Legal": {
+            "Title": "Legal Consultant",
+            "Subtitle": "We provide legal advisory services focused on contractual, regulatory, and risk-related matters, supporting businesses and individuals with practical and compliant legal solutions.",
+            "1": "Litigation and Non-Litigation Advisory",
+            "2": "Corporate and Commercial Legal Consultation",
+            "3": "Contract Review and Evaluation",
+            "4": "Ongoing Legal Advisory Services",
+            "5": "Legal Documentation and Regulatory Support",
+            "OurPartnerTitle": "Our Partner",
+            "OurPartnerDescription": "In collaboration with our trusted legal partner, Ichsan & Erlitha Attorneys at Law."
+        },
+        "Management": {
+            "Title": "Management Consultant",
+            "Subtitle": "Our management consulting services support organizations in strengthening governance, risk management, and operational effectiveness through structured advisory and capacity-building programs.",
+            "1": "Litigation and Non-Litigation Advisory",
+            "2": "Corporate and Commercial Legal Consultation",
+            "3": "Contract Review and Evaluation",
+            "4": "Ongoing Legal Advisory Services",
+            "5": "Legal Documentation and Regulatory Support",
+            "6": "Legal Documentation and Regulatory Support",
+            "7": "Legal Documentation and Regulatory Support"
+        },
+        "Tech": {
+            "Title": "IT Consultant",
+            "Subtitle": "Our IT consulting services focus on identifying, assessing, and managing technology-related risks, supporting organizations in building secure, reliable, and compliant IT environments."
+        },
+        "Financial": {
+            "Title": "Financial and Accounting Consultant",
+            "Subtitle": "Our Financial & Accounting Advisory services provide integrated solutions covering financial reporting, analysis, accounting systems implementation, governance frameworks, and capacity building. Through a standards-driven and strategic approach, we enhance transparency, compliance, and informed decision-making to help organizations build sustainable financial structures and achieve long-term growth.",
+            "1": "Financial Statement Preparation, preparation of compliant and reliable internal financial reports",
+            "2": "Financial Analysis, cash flow, cost, and profitability analysis for decisions",
+            "3": "Accounting & Bookkeeping Systems, design and implementation of standardized accounting systems",
+            "4": "Compliance & Governance, development of policies, SOPs, and compliance frameworks",
+            "5": "Training & Capacity Building, workshops and training to strengthen financial competencies"
+        }
+    },
+    "Education": {
+        "Title": "Legal, Technology, and Governance Insights",
+        "Subtitle": "Curated educational content sharing practical perspectives on legal compliance, technology risk, and organizational governance.",
+        "VideoTitle": "Featured Videos",
+        "VideoSubtitle": "The content provided is for general educational purposes and does not constitute legal advice."
     }
 }

@@ -6,8 +6,10 @@ import { Input } from "@/components/base/input/input"
 import { Label } from "@/components/base/input/label"
 import { RadioButton, RadioGroup } from "@/components/base/radio-buttons/radio-buttons"
 import { TextArea } from "@/components/base/textarea/textarea"
+import { useTranslations } from "next-intl"
 
 export const ContactUs = () => {
+    const t = useTranslations("HomePage.ContactUs")
     const [formValue, setFormValue] = useState({
         first_name: "",
         last_name: "",
@@ -16,15 +18,15 @@ export const ContactUs = () => {
         services: "legal",
         message: "",
     })
-    // const formTime = Date.now();
+
     const submitForm = async () => {
         try {
-            const name = `Hi, my name is ${formValue.first_name} ${formValue.last_name}.`;
-            const service = `I need ${formValue.services === "legal" ? "a Legal Consultation" : formValue.services === "tech" ? "an IT Consultation" : formValue.services === "management" ? "a Management Consultation" : "a Financial & Accounting Consultation"}.`;
-            const message = `I have a question about ${formValue.message}.`;
-            const contactInfo = `Please contact me through phone at ${formValue.phone_number} or email ${formValue.email}.`;
+            const name = t("HiMyNameIs", { firstName: formValue.first_name, lastName: formValue.last_name });
+            const service = t("MyServiceIs", { service: formValue.services === "legal" ? "Legal Consultation" : formValue.services === "tech" ? "IT Consultation" : formValue.services === "management" ? "Management Consultation" : "Financial & Accounting Consultation" });
+            const message = t("IWantToDiscuss", { message: formValue.message });
+            const contactInfo = t("ContactMe", { phone_number: formValue.phone_number, email: formValue.email });
             const fullMessage = `${name} ${service} ${message}`;
-            const fullMailtoLink = `mailto:tiko.aqsa@gmail.com?body=${encodeURIComponent(fullMessage)}%0D%0A%0D%0A${encodeURIComponent(contactInfo)}`;
+            const fullMailtoLink = `mailto:admin@konsultanmanajemenindonesia.com?body=${encodeURIComponent(fullMessage)}%0D%0A%0D%0A${encodeURIComponent(contactInfo)}`;
             window.open(fullMailtoLink, '_blank');
 
             // const response = await fetch("/api/contact-us", {
@@ -60,17 +62,17 @@ export const ContactUs = () => {
     return (
         <section id="contact-us" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
             <div className="py-8 md:py-16 px-2 md:px-8 text-center">
-                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">Contact Us</h1>
-                <p className="mt-4 text-lg text-fg-secondary">Let's discuss your legal and business challenges.</p>
+                <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("Title")}</h1>
+                <p className="mt-4 text-lg text-fg-secondary">{t("Subtitle")}</p>
                 <div className="text-left bg-white rounded-lg p-4 md:p-6 m-8">
-                    <h2 className="underline text-fg-primary">Send us a message</h2>
+                    <h2 className="underline text-fg-primary">{t("SendUsAMessage")}</h2>
                     <form className="mt-4 space-y-4" onSubmit={submitForm}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
                             <Input
                                 isRequired
                                 key="first_name"
-                                hint="Enter your first name"
-                                label="First Name"
+                                hint={t("FirstNameSubtitle")}
+                                label={t("FirstName")}
                                 placeholder="e.g. John"
                                 value={formValue.first_name}
                                 onChange={(value) => setFormValue({ ...formValue, first_name: value })}
@@ -78,8 +80,8 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="last_name"
-                                hint="Enter your last name"
-                                label="Last Name"
+                                hint={t("LastNameSubtitle")}
+                                label={t("LastName")}
                                 value={formValue.last_name}
                                 onChange={(value) => setFormValue({ ...formValue, last_name: value })}
                                 placeholder="e.g. Doe"
@@ -87,9 +89,9 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="phone_number"
-                                hint="Enter your phone number"
-                                label="Phone Number"
-                                tooltip="We'll reach you through this email/phone number"
+                                hint={t("PhoneNumberSubtitle")}
+                                label={t("PhoneNumber")}
+                                tooltip={t("ReachingYouOut")}
                                 placeholder="e.g. 081234567890"
                                 value={formValue.phone_number}
                                 onChange={(value) => setFormValue({ ...formValue, phone_number: value })}
@@ -98,9 +100,9 @@ export const ContactUs = () => {
                             <Input
                                 isRequired
                                 key="email"
-                                hint="Enter your email address"
-                                label="Email"
-                                tooltip="We'll reach you through this email/phone number"
+                                hint={t("EmailSubtitle")}
+                                label={t("Email")}
+                                tooltip={t("ReachingYouOut")}
                                 placeholder="e.g. john.doe@example.com"
                                 value={formValue.email}
                                 onChange={(value) => setFormValue({ ...formValue, email: value })}
@@ -111,32 +113,32 @@ export const ContactUs = () => {
                             />
                             <input type="text" name="website" className="hidden" />
                             <RadioGroup
-                                aria-label="Choose Service"
-                                name="Product or service"
+                                aria-label={t("ChooseService")}
+                                name={t("ChooseService")}
                                 key="services"
                                 defaultValue={formValue.services}
                                 isRequired
                             >
                                 <Label isRequired>
-                                    Product or service
+                                    {t("ChooseService")}
                                 </Label>
                                 <RadioButton
-                                    label="Legal Consultation"
+                                    label={t("LegalConsultation")}
                                     value="legal"
                                     onClick={() => setFormValue({ ...formValue, services: "legal" })}
                                 />
                                 <RadioButton
-                                    label="IT Consultation"
+                                    label={t("ITConsultation")}
                                     value="tech"
                                     onClick={() => setFormValue({ ...formValue, services: "tech" })}
                                 />
                                 <RadioButton
-                                    label="Management Consultation"
+                                    label={t("ManagementConsultation")}
                                     value="management"
                                     onClick={() => setFormValue({ ...formValue, services: "management" })}
                                 />
                                 <RadioButton
-                                    label="Financial & Accounting Consultation"
+                                    label={t("FinancialAccountingConsultation")}
                                     value="finance-account"
                                     onClick={() => setFormValue({ ...formValue, services: "finance-account" })}
                                 />
@@ -144,17 +146,17 @@ export const ContactUs = () => {
                             <TextArea
                                 isRequired
                                 key="message"
-                                hint="Enter your message"
-                                label="Message"
+                                hint={t("MessageSubtitle")}
+                                label={t("Message")}
                                 rows={5}
-                                tooltip="Tell us about your challenges or maybe related to the other service you want to ask about"
+                                tooltip={t("MessageTooltip")}
                                 value={formValue.message}
                                 onChange={(value) => setFormValue({ ...formValue, message: value })}
-                                placeholder="e.g. I have a question about..."
+                                placeholder={t("MessagePlaceholder")}
                             />
                         </div>
                         <Button type="submit" className="w-full" size="lg" >
-                            Send Message
+                            {t("SendMessage")}
                         </Button>
                     </form>
                 </div>

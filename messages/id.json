@@ -1,5 +1,172 @@
 {
+    "General": {
+        "LearnMore": "Pelajari Lebih Lanjut",
+        "ContactUs": "Hubungi Kami",
+        "MoreInfo": "Informasi Lebih Lanjut",
+        "InterestedInOurServicesTitle": "Tertarik untuk berdiskusi lebih lanjut?",
+        "IntersestedInOurServicesSubtitle": "Tim kami siap mendukung organisasi Anda dengan wawasan praktis dan layanan konsultasi yang dapat diandalkan.",
+        "RequestConsultation": "Ajukan Konsultasi"
+    },
     "HomePage": {
-        "title": "Halo dunia!"
+        "Header": {
+            "1": {
+                "Title": "Mitra Strategis Anda di Bidang Hukum, Teknologi, Keuangan, dan Manajemen",
+                "Subtitle": "Kami membantu organisasi Anda menghadapi risiko hukum, transformasi digital, dan tantangan tata kelola dengan pendekatan yang jelas, percaya diri, dan mudah diterapkan."
+            },
+            "2": {
+                "Title": "Transformasi Digital yang Lebih Percaya Diri",
+                "Subtitle": "Mendukung organisasi Anda melalui teknologi inovatif dan strategi yang tepat sasaran."
+            },
+            "3": {
+                "Title": "Pendampingan untuk Tantangan Bisnis yang Kompleks",
+                "Subtitle": "Menghadirkan wawasan praktis dan solusi yang relevan sesuai kebutuhan organisasi Anda."
+            },
+            "4": {
+                "Title": "Pengelolaan Keuangan dan Akuntansi yang Lebih Baik",
+                "Subtitle": "Membantu meningkatkan kinerja keuangan melalui praktik akuntansi yang solid dan keputusan berbasis data."
+            }
+        },
+        "Solutions": {
+            "Title": "Solusi Terpadu",
+            "Subtitle": "Layanan konsultasi spesialis yang dirancang untuk membantu organisasi mengelola risiko, memastikan kepatuhan, dan mendorong pertumbuhan bisnis yang berkelanjutan."
+        },
+        "Reasons": {
+            "Title": "Mengapa Memilih Kami",
+            "Subtitle": "Kami memberikan layanan konsultasi independen untuk membantu organisasi mengurangi risiko dan mengambil keputusan yang tepat secara profesional dan bertanggung jawab.",
+            "1": {
+                "Title": "Tim Konsultan Berpengalaman",
+                "Description": "Didukung oleh konsultan dan trainer yang berpengalaman serta terpercaya, dengan keahlian lintas bidang seperti hukum, teknologi, manajemen, dan keuangan."
+            },
+            "2": {
+                "Title": "Pengalaman yang Teruji",
+                "Description": "Tim kami memiliki pengalaman yang telah terbukti di berbagai industri, dengan solusi yang berbasis praktik nyata, bukan sekadar asumsi."
+            },
+            "3": {
+                "Title": "Solusi Adaptif & Praktis",
+                "Description": "Kami menyesuaikan pendekatan dengan sistem, regulasi, dan lingkungan bisnis yang ada, sehingga solusi yang diberikan tetap relevan dan sesuai dengan kebutuhan organisasi Anda."
+            }
+        },
+        "Deliverables": {
+            "Title": "Memberikan Dampak Nyata",
+            "Subtitle": "Kami menyediakan layanan konsultasi independen yang mengutamakan kualitas, profesionalisme, dan akuntabilitas, untuk membantu organisasi mengelola risiko serta mencapai hasil yang berkelanjutan.",
+            "AboutUs": {
+                "Title": "Tentang Kami",
+                "Description": "Konsultan Manajemen Indonesia (KMI) adalah firma konsultasi independen di bidang hukum, teknologi, manajemen, dan keuangan yang didirikan pada tahun 2018. Kami bermitra dengan organisasi untuk menghadirkan layanan konsultasi profesional yang membantu mengurangi risiko, memperkuat tata kelola, dan mendukung operasional bisnis yang berkelanjutan. Kami berkomitmen menjadi mitra terpercaya dengan menghadirkan layanan yang mengedepankan keandalan, profesionalisme, responsivitas, serta nilai yang terukur."
+            },
+            "Vision": {
+                "Title": "Visi Kami",
+                "Description": "Menjadi firma konsultasi di bidang hukum, teknologi, dan manajemen yang terpercaya dalam mendukung organisasi meningkatkan produktivitas, kepatuhan, dan kinerja secara menyeluruh."
+            },
+            "Mission": {
+                "Title": "Misi Kami",
+                "Description": "Memberikan layanan konsultasi yang mengutamakan kualitas, profesionalisme, dan integrasi yang praktis, sehingga membantu klien mencapai tujuan strategisnya dengan lebih percaya diri."
+            }
+        },
+        "OurClients": {
+            "Title": "Klien Kami",
+            "Subtitle": "Mendampingi berbagai organisasi di berbagai industri untuk membangun kepercayaan diri, menjaga kepatuhan, dan mencapai keberhasilan jangka panjang."
+        },
+        "ContactUs": {
+            "Title": "Hubungi Kami",
+            "Subtitle": "Mari diskusikan kebutuhan hukum dan tantangan bisnis Anda.",
+            "SendUsAMessage": "Kirim pesan kepada kami",
+            "FirstName": "Nama Depan",
+            "FirstNameSubtitle": "Masukkan nama depan Anda",
+            "LastName": "Nama Belakang",
+            "LastNameSubtitle": "Masukkan nama belakang Anda",
+            "PhoneNumber": "Nomor Telepon",
+            "PhoneNumberSubtitle": "Masukkan nomor telepon Anda",
+            "Email": "Surel",
+            "EmailSubtitle": "Masukkan alamat surel Anda",
+            "ChooseService": "Pilih Layanan",
+            "ReachingYouOut": "Kami akan menghubungi Anda melalui email/telepon ini",
+            "Message": "Pesan",
+            "MessageSubtitle": "Masukkan pesan Anda",
+            "MessagePlaceholder": "e.g. Saya ingin berdiskusi tentang....",
+            "MessageTooltip": "Ceritakan tentang tantangan Anda atau mungkin terkait dengan layanan lain yang ingin Anda tanyakan",
+            "LegalConsultation": "Konsultasi Hukum",
+            "ITConsultation": "Konsultasi IT",
+            "ManagementConsultation": "Konsultasi Manajemen",
+            "FinancialAccountingConsultation": "Konsultasi Keuangan & Akuntansi",
+            "SendMessage": "Kirim Pesan",
+            "HiMyNameIs": "Halo, nama saya {firstName} {lastName}.",
+            "MyServiceIs": "Saya ingin mendiskusikan terkait dengan layanan {service}.",
+            "IWantToDiscuss": "Saya memiliki pertanyaan tentang {message}.",
+            "ContactMe": "Silakan hubungi saya melalui telepon di {phone_number} atau email {email}."
+        }
+    },
+    "Header": {
+        "List": {
+            "Home": "Beranda",
+            "AboutUs": "Tentang Kami",
+            "Services": "Layanan",
+            "Contact": "Kontak",
+            "Education": "Konten Edukasi"
+        },
+        "Services": {
+            "Legal": {
+                "Title": "Konsultan Hukum",
+                "Subtitle": "Layanan konsultasi hukum untuk perusahaan maupun individu",
+                "Detail": "Kami menyediakan layanan konsultasi hukum yang komprehensif untuk perusahaan maupun individu, dengan fokus pada kepatuhan, kontrak, dan pengelolaan risiko regulasi yang disesuaikan dengan kebutuhan bisnis Anda."
+            },
+            "Management": {
+                "Title": "Konsultan Manajemen",
+                "Subtitle": "Mendampingi organisasi dalam meningkatkan kinerja dan pengelolaan bisnis",
+                "Detail": "Layanan konsultasi manajemen kami membantu organisasi meningkatkan kinerja, memperkuat tata kelola, dan menghadapi tantangan operasional melalui solusi yang strategis dan terukur."
+            },
+            "IT": {
+                "Title": "Konsultan IT",
+                "Subtitle": "Membantu organisasi dalam mengelola risiko dan kebutuhan teknologi",
+                "Detail": "Kami mendukung organisasi dalam mengelola risiko teknologi, mulai dari transformasi digital dan tata kelola sistem hingga keamanan siber dan perlindungan data."
+            },
+            "Financial": {
+                "Title": "Konsultan Keuangan dan Akuntansi",
+                "Subtitle": "Mendukung pengelolaan keuangan dan akuntansi secara menyeluruh",
+                "Detail": "Kami menyediakan solusi terintegrasi yang mencakup pelaporan dan analisis keuangan, implementasi sistem akuntansi, tata kelola, serta pengembangan kapasitas tim."
+            }
+        }
+    },
+    "Services": {
+        "Legal": {
+            "Title": "Konsultan Hukum",
+            "Subtitle": "Kami menyediakan layanan konsultasi hukum yang berfokus pada aspek kontraktual, regulasi, dan pengelolaan risiko, untuk mendukung bisnis maupun individu dengan solusi yang praktis dan sesuai ketentuan.",
+            "1": "Pendampingan Litigasi dan Non-Litigasi",
+            "2": "Konsultasi Hukum Korporasi dan Komersial",
+            "3": "Review dan Evaluasi Kontrak",
+            "4": "Layanan Konsultasi Hukum Berkelanjutan",
+            "5": "Penyusunan Dokumen Hukum dan Dukungan Regulasi",
+            "OurPartnerTitle": "Mitra Kami",
+            "OurPartnerDescription": "Bekerja sama dengan mitra hukum terpercaya kami, Ichsan & Erlitha Attorneys at Law."
+        },
+        "Management": {
+            "Title": "Konsultan Manajemen",
+            "Subtitle": "Layanan konsultasi manajemen kami membantu organisasi memperkuat tata kelola, manajemen risiko, dan efektivitas operasional melalui pendekatan yang terstruktur serta program pengembangan kapasitas.",
+            "1": "Sistem Manajemen Mutu & Operasional (ISO 9001, ISO 14001)",
+            "2": "Manajemen Kesehatan, Keselamatan Kerja, dan Lingkungan (HSE) (ISO 45001, HSE Services / Safety Man, AMDAL / UKL-UPL)",
+            "3": "Keamanan Informasi & Manajemen Risiko (ISO 27001, ISO 31000)",
+            "4": "Keamanan Pangan, Halal, dan Kepatuhan Rantai Pasok (ISO 22000, FSSC 22000, HACCP, HAS 23000)",
+            "5": "Tata Kelola Etika, Kepatuhan, dan Keberlanjutan (ISO 37001, ISPO & RSPO)",
+            "6": "Pengembangan Organisasi & Peningkatan Kapasitas (Pelatihan Soft Skills)",
+            "7": "Layanan Managed Services & Dukungan Operasional (Outsource - Managed Services)"
+        },
+        "Tech": {
+            "Title": "Konsultan IT",
+            "Subtitle": "Layanan konsultasi IT kami berfokus pada identifikasi, evaluasi, dan pengelolaan risiko teknologi, untuk mendukung organisasi dalam membangun lingkungan IT yang aman, andal, dan sesuai dengan regulasi."
+        },
+        "Financial": {
+            "Title": "Konsultan Keuangan dan Akuntansi",
+            "Subtitle": "Layanan konsultasi Keuangan & Akuntansi kami menghadirkan solusi terintegrasi yang mencakup pelaporan dan analisis keuangan, implementasi sistem akuntansi, kerangka tata kelola, serta pengembangan kapasitas tim. Dengan pendekatan yang berbasis standar dan strategis, kami membantu meningkatkan transparansi, kepatuhan, serta kualitas pengambilan keputusan, sehingga organisasi dapat membangun fondasi keuangan yang berkelanjutan dan mendorong pertumbuhan jangka panjang.",
+            "1": "Penyusunan Laporan Keuangan - laporan keuangan internal yang sesuai standar dan dapat diandalkan",
+            "2": "Analisis Keuangan — analisis arus kas, biaya, dan profitabilitas untuk mendukung pengambilan keputusan",
+            "3": "Implementasi Sistem Akuntansi — penyelesaian sistem akuntansi yang sesuai dengan standar dan kebutuhan organisasi    Sistem Akuntansi & Pembukuan — perancangan dan implementasi sistem akuntansi yang terstandarisasi",
+            "4": "Kepatuhan & Tata Kelola — penyusunan kebijakan, SOP, dan kerangka kepatuhan",
+            "5": "Pelatihan & Pengembangan Kapasitas — workshop dan pelatihan untuk meningkatkan kompetensi keuangan"
+        }
+    },
+    "Education": {
+        "Title": "Wawasan Hukum, Teknologi, dan Tata Kelola",
+        "Subtitle": "Konten edukatif terkurasi yang membagikan perspektif praktis terkait kepatuhan hukum, risiko teknologi, dan tata kelola organisasi.",
+        "VideoTitle": "Video Pilihan",
+        "VideoSubtitle": "Konten yang disajikan bertujuan untuk edukasi umum dan tidak dimaksudkan sebagai nasihat hukum."
     }
 }

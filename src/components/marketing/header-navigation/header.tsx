@@ -7,6 +7,7 @@ import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialog
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { DropdownMenuSimple } from "@/components/marketing/header-navigation/dropdown-header-navigation";
 import { cx } from "@/utils/cx";
+import { useTranslations } from 'next-intl';
 
 type HeaderNavItem = {
     label: string;
@@ -14,13 +15,6 @@ type HeaderNavItem = {
     menu?: ReactNode;
 };
 
-const headerNavItems: HeaderNavItem[] = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services", menu: <DropdownMenuSimple /> },
-    { label: "Educations", href: "/educations" },
-    { label: "About us", href: "/#about-us" },
-    { label: "Contact", href: "/#contact-us" },
-];
 
 const MobileNavItem = (props: { className?: string; label: string; href?: string; children?: ReactNode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +53,17 @@ interface HeaderProps {
     className?: string;
 }
 
-export const Header = ({ items = headerNavItems, isFullWidth, isFloating, className }: HeaderProps) => {
+export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProps) => {
+    const t = useTranslations();
+
+    const headerNavItems: HeaderNavItem[] = [
+        { label: t("Header.List.Home"), href: "/" },
+        { label: t("Header.List.Services"), href: "/services", menu: <DropdownMenuSimple /> },
+        { label: t("Header.List.Education"), href: "/educations" },
+        { label: t("Header.List.AboutUs"), href: "/#about-us" },
+        { label: t("Header.List.Contact"), href: "/#contact-us" },
+    ];
+    const finalItems = items ?? headerNavItems;
     const headerRef = useRef<HTMLElement>(null);
 
     return (
@@ -85,7 +89,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
                             <ul className="flex items-center gap-0.5">
-                                {items.map((navItem) => (
+                                {finalItems.map((navItem) => (
                                     <li key={navItem.label}>
                                         {navItem.menu ? (
                                             <AriaDialogTrigger>
@@ -180,7 +184,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                             <AriaDialog className="outline-hidden">
                                 <nav className="w-full bg-primary shadow-lg">
                                     <ul className="flex flex-col gap-0.5 py-5">
-                                        {items.map((navItem) =>
+                                        {finalItems.map((navItem) =>
                                             navItem.menu ? (
                                                 <MobileNavItem key={navItem.label} label={navItem.label}>
                                                     {navItem.menu}
