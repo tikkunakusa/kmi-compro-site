@@ -2,6 +2,8 @@
 
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
@@ -13,6 +15,35 @@ type HeaderNavItem = {
     label: string;
     href?: string;
     menu?: ReactNode;
+};
+
+const LanguageSwitcher = () => {
+    const pathname = usePathname();
+    const segments = pathname.split('/');
+    const currentLocale = segments[1];
+
+    const switchLocale = (locale: string) => {
+        segments[1] = locale;
+        return segments.join('/');
+    };
+
+    return (
+        <div className="flex items-center gap-2 ml-4">
+            <Link
+                href={switchLocale('id')}
+                className={cx("text-sm font-semibold", currentLocale === 'id' ? "text-primary" : "text-secondary")}
+            >
+                ID
+            </Link>
+            <span className="text-secondary">|</span>
+            <Link
+                href={switchLocale('en')}
+                className={cx("text-sm font-semibold", currentLocale === 'en' ? "text-primary" : "text-secondary")}
+            >
+                EN
+            </Link>
+        </div>
+    );
 };
 
 
@@ -140,6 +171,7 @@ export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProp
                                 ))}
                             </ul>
                         </nav>
+                        <LanguageSwitcher />
                     </div>
 
                     {/* Mobile menu and menu trigger */}

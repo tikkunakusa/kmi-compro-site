@@ -15,7 +15,7 @@ export const LegalConsultant = () => {
     ]
     return (
         <section id="legal" className="w-full max-w-container bg-primary items-center justify-center">
-            <HeroTitleServices title="Legal Consultant" imageSrc="/images/header-services-legal.png" />
+            <HeroTitleServices title={t("Title")} imageSrc="/images/header-services-legal.png" />
             <div className="py-16 px-8">
                 <div>
                     <h2 className="text-2xl font-bold tracking-tight text-fg-primary sm:text-xl">
