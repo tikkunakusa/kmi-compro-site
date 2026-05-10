@@ -39,20 +39,7 @@ export default function Footer() {
                   <path d="M22 16.92v3a2 2 0 01-2.18 2A19.72 19.72 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.12.86.33 1.7.63 2.5a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.58-1.58a2 2 0 012.11-.45c.8.3 1.64.51 2.5.63A2 2 0 0122 16.92z" />
                 </svg>
                 <div>
-                  <span className="font-semibold">Phone 1:</span><br />
-                </div>
-                <a href="tel:+622184930968" className="hover:underline">
-                  +62 21 84930968
-                </a>
-              </div>
-
-              <div className="flex items-center gap-3">
-                {/* Phone */}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2A19.72 19.72 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.12.86.33 1.7.63 2.5a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.58-1.58a2 2 0 012.11-.45c.8.3 1.64.51 2.5.63A2 2 0 0122 16.92z" />
-                </svg>
-                <div>
-                  <span className="font-semibold">Phone 2:</span><br />
+                  <span className="font-semibold">Phone:</span><br />
                 </div>
                 <a href="tel:+622180477311" className="hover:underline">
                   +62 21 80477311
@@ -145,7 +132,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-sm text-gray-600">
 
           <p>
-            © PT.Konsultan Sistem Manajemen Indonesia. All Rights Reserved
+            © PT Konsultan Sistem Manajemen Indonesia. All Rights Reserved
           </p>
         </div>
       </div>

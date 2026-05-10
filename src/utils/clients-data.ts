@@ -19,4 +19,7 @@ export const clients: Client[] = [
     { name: "Traktor Nusantara", logo: "/clients/traktor.png" },
     { name: "Eranya Cloud", logo: "/clients/eranya.png" },
     { name: "Samafitro", logo: "/clients/samafitro.png" },
+    { name: "Ayuberga", logo: "/clients/ayuberga.png" },
+    { name: "PGNCom", logo: "/clients/pgncom.png" },
+    { name: "Kalakaru", logo: "/clients/kalakaru.png" },
 ];
