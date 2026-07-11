@@ -1,5 +1,3 @@
-"use client";
-
 import { Fragment } from "react";;
 import { LegalConsultant } from "@/components/pages/services/1-legal";
 import { ManagementConsultant } from "@/components/pages/services/2-management";

@@ -1,5 +1,3 @@
-"use client";
-
 import { Fragment } from "react";;
 import { HeroCarousel } from "@/components/pages/home/1-carousel-hero";
 import { CompanyServices } from "@/components/pages/home/2-company-services";
