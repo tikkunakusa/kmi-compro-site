@@ -161,12 +161,66 @@ docs/deployment/
 
 ## Scripts
 
+Folder `scripts/` berisi kumpulan utility script yang digunakan untuk operasional dan deployment website pada lingkungan production.
+
+```text
+scripts/
+├── deploy.sh
+├── build.sh
+├── restart.sh
+├── rollback.sh
+├── health-check.sh
+├── logs.sh
+├── backup.sh
+└── permissions.sh
+```
+
+### Available Scripts
+
 | Script | Description |
 |---------|-------------|
-| `npm run dev` | Development Server |
-| `npm run build` | Build Production |
-| `npm run start` | Start Production |
-| `./deploy.sh` | Deploy Application *(Production)* |
+| `deploy.sh` | Melakukan deployment penuh (build, copy assets, restart PM2, dan health check). |
+| `build.sh` | Melakukan build aplikasi production dan menyiapkan output standalone. |
+| `restart.sh` | Merestart aplikasi menggunakan PM2. |
+| `rollback.sh` | Melakukan rollback ke commit sebelumnya dan melakukan redeploy. |
+| `health-check.sh` | Menampilkan status PM2, Nginx, Firewall, SSL, penggunaan disk, dan memori. |
+| `logs.sh` | Menampilkan log aplikasi melalui PM2. |
+| `backup.sh` | Membuat backup konfigurasi penting server. |
+| `permissions.sh` | Memberikan permission executable pada seluruh script di folder `scripts/`. |
+
+### Common Usage
+
+Deployment:
+
+```bash
+./scripts/deploy.sh
+```
+
+Health Check:
+
+```bash
+./scripts/health-check.sh
+```
+
+Application Logs:
+
+```bash
+./scripts/logs.sh
+```
+
+Restart Application:
+
+```bash
+./scripts/restart.sh
+```
+
+Rollback Deployment:
+
+```bash
+./scripts/rollback.sh
+```
+
+> Seluruh script dirancang untuk lingkungan **Production** dan sebaiknya dijalankan dari root project. Dokumentasi lengkap mengenai proses deployment dan operasional server tersedia pada `docs/deployment/`.
 
 ---
 
