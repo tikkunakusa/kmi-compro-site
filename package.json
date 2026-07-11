@@ -1,11 +1,11 @@
 {
-    "name": "untitledui-nextjs-starter-kit",
-    "version": "0.0.0",
+    "name": "kmi-compro-site",
+    "version": "1.0.3",
     "private": true,
     "scripts": {
         "dev": "next dev --turbopack",
-        "build": "PORT=3434 NEXT_DISABLE_ESLINT=1 NEXT_DISABLE_TYPECHECK=1 NODE_OPTIONS='--max-old-space-size=1536' next build",
-        "start": "next start -p 3434"
+        "build": "PORT=3434 NEXT_DISABLE_ESLINT=1 NEXT_DISABLE_TYPECHECK=1 NODE_OPTIONS='--max-old-space-size=1024' next build",
+        "start": "PORT=3434 node .next/standalone/server.js"
     },
     "dependencies": {
         "@react-stately/utils": "^3.11.0",
@@ -27,7 +27,6 @@
         "react-aria-components": "^1.16.0",
         "react-dom": "^19.2.4",
         "react-social-media-embed": "^2.5.18",
-        "sharp": "^0.35.3",
         "tailwind-merge": "^3.5.0",
         "tailwindcss": "^4.1.18",
         "tailwindcss-animate": "^1.0.7",
