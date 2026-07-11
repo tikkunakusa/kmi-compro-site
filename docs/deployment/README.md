@@ -1,44 +1,36 @@
 # KMI Company Profile
 
-> **Production Infrastructure Documentation**
->
-> Standard Operating Procedures (SOP), Operational Runbook, Disaster Recovery, dan Architecture Decision Records untuk website **Konsultan Manajemen Indonesia (KMI)**.
+# Production Infrastructure Documentation
+
+> Standard Operating Procedures (SOP), Operational Runbook, Disaster Recovery, Infrastructure Inventory, dan Architecture Decision Records (ADR) untuk website **Konsultan Manajemen Indonesia (KMI)**.
 
 ---
 
-# 📖 Overview
+# Overview
 
-Repository ini berisi seluruh dokumentasi yang berkaitan dengan deployment, operasional, maintenance, keamanan, serta arsitektur website **KMI Company Profile**.
+Dokumentasi ini berisi seluruh informasi yang diperlukan untuk membangun, mengelola, memelihara, dan memulihkan lingkungan **Production** website KMI.
 
-Dokumentasi disusun berdasarkan implementasi aktual pada lingkungan **Production**, sehingga dapat digunakan sebagai:
+Dokumentasi disusun berdasarkan implementasi aktual pada lingkungan production dan menjadi **Single Source of Truth (SSOT)** bagi seluruh konfigurasi dan prosedur operasional server.
 
-- Standard Operating Procedure (SOP)
+---
+
+# Documentation Scope
+
+Dokumentasi ini mencakup:
+
+- Server Provisioning
+- Application Deployment
+- Nginx, DNS & SSL Configuration
+- Security Hardening
 - Operational Runbook
-- Knowledge Base
-- Disaster Recovery Guide
+- Troubleshooting Knowledge Base
+- Disaster Recovery
 - Infrastructure Inventory
 - Architecture Decision Records (ADR)
 
 ---
 
-# 📦 Infrastructure Overview
-
-| Component | Technology |
-|-----------|------------|
-| Framework | Next.js (App Router) |
-| Runtime | Node.js 24.x |
-| Deployment | Next.js Standalone |
-| Process Manager | PM2 |
-| Reverse Proxy | Nginx |
-| SSL | Let's Encrypt |
-| VPS | Domainesia Cloud VPS Lite 2 GB |
-| Domain | Rumahweb |
-| DNS | Rumahweb DNS Management |
-| Email | Domainesia MailSpace |
-
----
-
-# 🏗 Production Architecture
+# Production Architecture
 
 ```text
                         Internet
@@ -58,29 +50,34 @@ Dokumentasi disusun berdasarkan implementasi aktual pada lingkungan **Production
  Domainesia Cloud VPS             Domainesia MailSpace
             │
             ▼
-          Nginx
+Ubuntu Server 24.04 LTS
             │
             ▼
- PM2 (kmi-compro-site)
+Nginx Reverse Proxy
             │
             ▼
- Next.js Standalone
+PM2 Process Manager
+            │
+            ▼
+Next.js Standalone
 ```
 
 ---
 
-# 📚 Documentation Structure
+# Documentation Guide
+
+Seluruh dokumentasi dibagi berdasarkan lifecycle operasional server.
 
 ## 1. Deployment SOP
 
-Panduan untuk membangun server production dari awal hingga website dapat diakses.
+Panduan membangun server production dari awal.
 
 | Document | Description |
 |----------|-------------|
-| **01-server-setup.md** | Persiapan VPS dan instalasi software |
-| **02-project-deployment.md** | Deployment aplikasi Next.js |
-| **03-nginx-ssl.md** | Reverse Proxy, DNS, dan SSL |
-| **04-security-hardening.md** | Firewall, Fail2Ban, PM2 Log Rotation, Security Updates |
+| 01-server-setup.md | Persiapan VPS dan instalasi software |
+| 02-project-deployment.md | Deployment aplikasi Next.js |
+| 03-nginx-ssl.md | Konfigurasi Nginx, DNS, dan SSL |
+| 04-security-hardening.md | Konfigurasi keamanan server |
 
 ---
 
@@ -90,7 +87,7 @@ Panduan operasional server setelah website berada pada lingkungan production.
 
 | Document | Description |
 |----------|-------------|
-| **05-maintenance.md** | Deployment update, monitoring, backup, maintenance rutin |
+| 05-maintenance.md | Monitoring, deployment update, backup, dan maintenance rutin |
 
 ---
 
@@ -100,48 +97,41 @@ Dokumentasi seluruh masalah yang pernah ditemukan beserta solusi yang telah terb
 
 | Document | Description |
 |----------|-------------|
-| **06-troubleshooting.md** | Troubleshooting & Lessons Learned |
+| 06-troubleshooting.md | Troubleshooting & Lessons Learned |
 
 ---
 
 ## 4. Disaster Recovery
 
-Panduan pemulihan apabila terjadi kegagalan layanan.
+Panduan pemulihan apabila terjadi gangguan pada server production.
 
 | Document | Description |
 |----------|-------------|
-| **07-disaster-recovery.md** | Recovery Procedure & Migration Guide |
+| 07-disaster-recovery.md | Recovery Procedure & Server Migration |
 
 ---
 
 ## 5. Infrastructure Inventory
 
-Inventaris konfigurasi server production.
+Inventaris konfigurasi production yang sedang digunakan.
 
 | Document | Description |
 |----------|-------------|
-| **08-server-inventory.md** | Production Server Inventory |
+| 08-server-inventory.md | Production Infrastructure Inventory |
 
 ---
 
 ## 6. Architecture Decision Records (ADR)
 
-Dokumentasi keputusan arsitektur yang diambil selama pengembangan dan deployment.
+Dokumentasi keputusan arsitektur yang digunakan pada production.
 
 | Document | Description |
 |----------|-------------|
-| **adr/README.md** | ADR Index |
-| **ADR-001** | VPS Provider Selection |
-| **ADR-002** | Next.js Standalone |
-| **ADR-003** | PM2 Process Manager |
-| **ADR-004** | Email Architecture |
-| **ADR-005** | Nginx Reverse Proxy |
-| **ADR-006** | Domain Strategy |
-| **ADR-007** | Security Architecture |
+| adr/ADR-001-production-infrastructure-architecture.md | Production Infrastructure Architecture |
 
 ---
 
-# 📂 Repository Structure
+# Repository Structure
 
 ```text
 docs/
@@ -159,21 +149,21 @@ docs/
     ├── CHANGELOG.md
     │
     ├── adr/
-    │   ├── README.md
-    │   ├── ADR-001-vps-provider.md
-    │   ├── ADR-002-nextjs-standalone.md
-    │   ├── ADR-003-pm2.md
-    │   ├── ADR-004-email-architecture.md
-    │   ├── ADR-005-nginx.md
-    │   ├── ADR-006-domain-strategy.md
-    │   └── ADR-007-security.md
+    │   └── ADR-001-production-infrastructure-architecture.md
     │
     ├── configs/
     │   ├── deploy.sh
     │   ├── ecosystem.config.cjs
     │   ├── nginx/
+    │   │   └── kmi-compro-site.conf
     │   ├── fail2ban/
-    │   └── ufw/
+    │   │   └── jail.local
+    │   ├── ufw/
+    │   │   └── README.md
+    │   ├── systemd/
+    │   │   └── README.md
+    │   └── environment/
+    │       └── production.env.example
     │
     └── assets/
         ├── architecture.drawio
@@ -183,63 +173,40 @@ docs/
 
 ---
 
-# ⚙️ Production Configuration
+# Configuration Management
 
-| Component | Configuration |
-|-----------|---------------|
-| PM2 | `configs/ecosystem.config.cjs` |
-| Deployment Script | `configs/deploy.sh` |
-| Nginx | `configs/nginx/kmi-compro-site.conf` |
-| Fail2Ban | `configs/fail2ban/jail.local` |
+Seluruh konfigurasi production yang digunakan pada server harus berasal dari folder `configs/`.
 
-Seluruh konfigurasi production harus mengacu pada file yang terdapat di dalam repository ini.
+| Configuration | Location |
+|---------------|----------|
+| Deployment Script | configs/deploy.sh |
+| PM2 | configs/ecosystem.config.cjs |
+| Nginx | configs/nginx/kmi-compro-site.conf |
+| Fail2Ban | configs/fail2ban/jail.local |
+| Environment Template | configs/environment/production.env.example |
 
----
-
-# 🔄 Infrastructure Lifecycle
-
-```text
-                 Planning
-                     │
-                     ▼
-            Architecture Decision
-                     │
-                     ▼
-              Server Provisioning
-                     │
-                     ▼
-              Application Deployment
-                     │
-                     ▼
-           Nginx, DNS & SSL Configuration
-                     │
-                     ▼
-            Security Hardening
-                     │
-                     ▼
-              Production Release
-                     │
-                     ▼
-         Monitoring & Maintenance
-                     │
-                     ▼
-             Troubleshooting
-                     │
-                     ▼
-            Disaster Recovery
-                     │
-                     ▼
-            Infrastructure Review
-```
+Konfigurasi pada server production harus selalu disinkronkan dengan repository apabila terdapat perubahan.
 
 ---
 
-# 📋 Production Status
+# Documentation Principles
+
+Dokumentasi ini mengikuti prinsip-prinsip berikut:
+
+- **Single Source of Truth** untuk seluruh konfigurasi production.
+- **Infrastructure as Documentation**, yaitu konfigurasi penting disimpan bersama dokumentasi.
+- **Knowledge Preservation**, agar pengalaman deployment tidak hilang ketika terjadi pergantian administrator.
+- **Operational Consistency**, sehingga deployment dan maintenance dilakukan dengan prosedur yang sama.
+- **Continuous Improvement**, dokumentasi diperbarui setiap kali terdapat perubahan arsitektur atau proses operasional.
+
+---
+
+# Production Status
 
 | Component | Status |
 |-----------|:------:|
-| Ubuntu Server | ✅ |
-| Node.js | ✅ |
+| Ubuntu Server 24.04 LTS | ✅ |
+| Node.js 24.x | ✅ |
 | Next.js Standalone | ✅ |
 | PM2 | ✅ |
 | PM2 Startup | ✅ |
@@ -250,22 +217,47 @@ Seluruh konfigurasi production harus mengacu pada file yang terdapat di dalam re
 | UFW Firewall | ✅ |
 | PM2 Log Rotation | ✅ |
 | Fail2Ban | ✅ |
-| Automatic Security Updates | ⏳ *(Enable setelah verifikasi)* |
+| Automatic Security Updates | ⏳ |
+
+> **Catatan:** Status di atas mencerminkan kondisi saat dokumentasi ini dibuat. Perbarui apabila terdapat perubahan pada lingkungan production.
 
 ---
 
-# 📝 Documentation Principles
+# Change Management
 
-Dokumentasi ini mengikuti beberapa prinsip berikut:
+Setiap perubahan pada lingkungan production harus mengikuti alur berikut:
 
-- **Single Source of Truth** untuk konfigurasi production.
-- **Infrastructure as Documentation**, yaitu seluruh konfigurasi penting disimpan di dalam repository.
-- **Knowledge Preservation**, sehingga pengalaman deployment tidak hilang ketika terjadi pergantian administrator.
-- **Operational Consistency**, agar seluruh proses deployment dan maintenance dilakukan dengan prosedur yang sama.
+```text
+Architecture Decision
+        │
+        ▼
+Update Documentation
+        │
+        ▼
+Update Configuration
+        │
+        ▼
+Deploy to Production
+        │
+        ▼
+Verification
+        │
+        ▼
+Update CHANGELOG
+```
 
 ---
 
-# 📄 License
+# Related Documents
+
+| Document | Purpose |
+|----------|---------|
+| `/README.md` | Project Overview & Development Guide |
+| `docs/deployment/README.md` | Production Infrastructure Documentation |
+
+---
+
+# License
 
 Internal Documentation
 

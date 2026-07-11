@@ -1,56 +1,189 @@
-# Untitled UI starter kit for Next.js
+# KMI Company Profile
 
-This is an official Untitled UI starter kit for Next.js. Kickstart your Untitled UI project with Next.js in seconds.
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Node.js](https://img.shields.io/badge/Node.js-24-green)
+![License](https://img.shields.io/badge/License-Internal-red)
+![Deployment](https://img.shields.io/badge/Deployment-PM2%20%2B%20Nginx-success)
 
-## Untitled UI React
+Website resmi **Konsultan Manajemen Indonesia (KMI)** yang dibangun menggunakan **Next.js App Router** dengan fokus pada performa, maintainability, dan kemudahan deployment.
 
-[Untitled UI React](https://www.untitledui.com/react) is the world’s largest collection of open-source React UI components. Everything you need to design and develop modern, beautiful interfaces—fast.
+---
 
-Built with React 19.1, Tailwind CSS v4.1, TypeScript 5.8, and React Aria, Untitled UI React components deliver modern performance, type safety, and maintainability.
+## Overview
 
-[Learn more](https://www.untitledui.com/react) • [Documentation](https://www.untitledui.com/react/docs/introduction) • [Figma](https://www.untitledui.com/figma) • [FAQs](https://www.untitledui.com/faqs)
+Project ini merupakan website company profile yang menyediakan informasi mengenai layanan, profil perusahaan, artikel, serta media komunikasi dengan calon klien.
 
-## Getting started
+Website dikembangkan dengan pendekatan modern menggunakan Next.js dan dirancang agar mudah dipelihara serta mudah dikembangkan di masa mendatang.
 
-First, run the development server:
+---
+
+## Tech Stack
+
+### Frontend
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+### Runtime
+
+- Node.js
+
+### Deployment
+
+- Next.js Standalone
+- PM2
+- Nginx
+
+### Infrastructure
+
+- Ubuntu Server 24.04 LTS
+- Domainesia Cloud VPS
+- Let's Encrypt SSL
+
+---
+
+## Features
+
+- Responsive Company Profile Website
+- SEO Friendly
+- Server Side Rendering (SSR)
+- Static Asset Optimization
+- Standalone Production Deployment
+- HTTPS
+- Security Hardening
+- Automated Deployment Script
+
+---
+
+## Project Structure
+
+```text
+.
+├── app/
+├── components/
+├── public/
+├── lib/
+├── docs/
+│   └── deployment/
+├── package.json
+└── next.config.ts
+```
+
+---
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-## Resources
+### Production
 
-Untitled UI React is built on top of [Untitled UI Figma](https://www.untitledui.com/figma), the world's largest and most popular Figma UI kit and design system. Explore more:
+```bash
+npm run start
+```
 
-**[Untitled UI Figma:](https://www.untitledui.com/react/resources/figma-files)** The world's largest Figma UI kit and design system.
-<br/>
-**[Untitled UI Icons:](https://www.untitledui.com/react/resources/icons)** A clean, consistent, and neutral icon library crafted specifically for modern UI design.
-<br/>
-**[Untitled UI file icons:](https://www.untitledui.com/react/resources/file-icons)** Free file format icons, designed specifically for modern web and UI design.
-<br/>
-**[Untitled UI flag icons:](https://www.untitledui.com/react/resources/flag-icons)** Free country flag icons, designed specifically for modern web and UI design.
-<br/>
-**[Untitled UI avatars:](https://www.untitledui.com/react/resources/avatars)** Free placeholder user avatars and profile pictures to use in your projects.
-<br/>
-**[Untitled UI logos:](https://www.untitledui.com/react/resources/logos)** Free fictional company logos to use in your projects.
+---
+
+## Environment Variables
+
+Salin template environment.
+
+```bash
+cp docs/deployment/configs/environment/production.env.example .env.production
+```
+
+Kemudian sesuaikan seluruh nilai environment sesuai kebutuhan.
+
+---
+
+## Documentation
+
+Seluruh dokumentasi teknis tersedia pada folder berikut.
+
+```text
+docs/deployment/
+```
+
+Dokumentasi meliputi:
+
+- Server Setup
+- Project Deployment
+- Nginx, DNS & SSL
+- Security Hardening
+- Maintenance
+- Troubleshooting
+- Disaster Recovery
+- Server Inventory
+- Architecture Decision Records (ADR)
+
+---
+
+## Deployment Architecture
+
+```text
+Internet
+    │
+    ▼
+Nginx
+    │
+    ▼
+PM2
+    │
+    ▼
+Next.js Standalone
+```
+
+Dokumentasi lengkap mengenai deployment tersedia pada:
+
+```text
+docs/deployment/
+```
+
+---
+
+## Scripts
+
+| Script | Description |
+|---------|-------------|
+| `npm run dev` | Development Server |
+| `npm run build` | Build Production |
+| `npm run start` | Start Production |
+| `./deploy.sh` | Deploy Application *(Production)* |
+
+---
+
+## Contributing
+
+Seluruh perubahan mengikuti standar coding project.
+
+Sebelum membuat Pull Request pastikan:
+
+- Build berhasil.
+- Linter berjalan tanpa error.
+- Dokumentasi diperbarui apabila terdapat perubahan arsitektur atau deployment.
+
+---
 
 ## License
 
-Untitled UI React open-source components are licensed under the MIT license, which means you can use them for free in unlimited commercial projects.
+Copyright © Konsultan Manajemen Indonesia (KMI)
 
-> [!NOTE]
-> This license applies only to the starter kit and to the components included in this open-source repository. [Untitled UI React PRO](https://www.untitledui.com/react) includes hundreds more advanced UI components and page examples and is subject to a separate [license agreement](https://www.untitledui.com/license).
-
-[Untitled UI license agreement →](https://www.untitledui.com/license)
-
-[Frequently asked questions →](https://www.untitledui.com/faqs)
+Internal Project.
