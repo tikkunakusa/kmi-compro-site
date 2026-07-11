@@ -8,25 +8,18 @@
 
 # Overview
 
-Dokumentasi ini berisi seluruh informasi yang diperlukan untuk membangun, mengelola, memelihara, dan memulihkan lingkungan **Production** website KMI.
+Dokumentasi ini menjadi **Single Source of Truth (SSOT)** untuk seluruh proses deployment, konfigurasi, operasional, keamanan, dan pemulihan server production website KMI.
 
-Dokumentasi disusun berdasarkan implementasi aktual pada lingkungan production dan menjadi **Single Source of Truth (SSOT)** bagi seluruh konfigurasi dan prosedur operasional server.
-
----
-
-# Documentation Scope
-
-Dokumentasi ini mencakup:
+Dokumentasi disusun berdasarkan implementasi aktual pada lingkungan production sehingga dapat digunakan sebagai referensi utama dalam:
 
 - Server Provisioning
 - Application Deployment
-- Nginx, DNS & SSL Configuration
+- Infrastructure Configuration
 - Security Hardening
-- Operational Runbook
-- Troubleshooting Knowledge Base
+- Maintenance
+- Troubleshooting
 - Disaster Recovery
-- Infrastructure Inventory
-- Architecture Decision Records (ADR)
+- Architecture Decision
 
 ---
 
@@ -66,9 +59,7 @@ Next.js Standalone
 
 # Documentation Guide
 
-Seluruh dokumentasi dibagi berdasarkan lifecycle operasional server.
-
-## 1. Deployment SOP
+## Deployment SOP
 
 Panduan membangun server production dari awal.
 
@@ -76,24 +67,20 @@ Panduan membangun server production dari awal.
 |----------|-------------|
 | 01-server-setup.md | Persiapan VPS dan instalasi software |
 | 02-project-deployment.md | Deployment aplikasi Next.js |
-| 03-nginx-ssl.md | Konfigurasi Nginx, DNS, dan SSL |
-| 04-security-hardening.md | Konfigurasi keamanan server |
+| 03-nginx-ssl.md | Nginx, DNS, dan SSL |
+| 04-security-hardening.md | Hardening server production |
 
 ---
 
-## 2. Operational Runbook
-
-Panduan operasional server setelah website berada pada lingkungan production.
+## Operational Runbook
 
 | Document | Description |
 |----------|-------------|
-| 05-maintenance.md | Monitoring, deployment update, backup, dan maintenance rutin |
+| 05-maintenance.md | Deployment, monitoring, backup, dan maintenance rutin |
 
 ---
 
-## 3. Knowledge Base
-
-Dokumentasi seluruh masalah yang pernah ditemukan beserta solusi yang telah terbukti berhasil.
+## Knowledge Base
 
 | Document | Description |
 |----------|-------------|
@@ -101,9 +88,7 @@ Dokumentasi seluruh masalah yang pernah ditemukan beserta solusi yang telah terb
 
 ---
 
-## 4. Disaster Recovery
-
-Panduan pemulihan apabila terjadi gangguan pada server production.
+## Disaster Recovery
 
 | Document | Description |
 |----------|-------------|
@@ -111,9 +96,7 @@ Panduan pemulihan apabila terjadi gangguan pada server production.
 
 ---
 
-## 5. Infrastructure Inventory
-
-Inventaris konfigurasi production yang sedang digunakan.
+## Infrastructure Inventory
 
 | Document | Description |
 |----------|-------------|
@@ -121,9 +104,7 @@ Inventaris konfigurasi production yang sedang digunakan.
 
 ---
 
-## 6. Architecture Decision Records (ADR)
-
-Dokumentasi keputusan arsitektur yang digunakan pada production.
+## Architecture Decision Records
 
 | Document | Description |
 |----------|-------------|
@@ -152,7 +133,6 @@ docs/
     │   └── ADR-001-production-infrastructure-architecture.md
     │
     ├── configs/
-    │   ├── deploy.sh
     │   ├── ecosystem.config.cjs
     │   ├── nginx/
     │   │   └── kmi-compro-site.conf
@@ -173,31 +153,84 @@ docs/
 
 ---
 
+# Production Scripts
+
+Script operasional production disimpan pada root project.
+
+```text
+scripts/
+├── deploy.sh
+├── build.sh
+├── restart.sh
+├── rollback.sh
+├── health-check.sh
+├── logs.sh
+├── backup.sh
+└── permissions.sh
+```
+
+## Available Scripts
+
+| Script | Description |
+|---------|-------------|
+| deploy.sh | Full deployment ke production |
+| build.sh | Build aplikasi dan menyiapkan standalone output |
+| restart.sh | Restart aplikasi menggunakan PM2 |
+| rollback.sh | Rollback ke commit sebelumnya |
+| health-check.sh | Pemeriksaan kondisi server |
+| logs.sh | Melihat log aplikasi |
+| backup.sh | Backup konfigurasi server |
+| permissions.sh | Memberikan executable permission pada seluruh script |
+
+---
+
 # Configuration Management
 
-Seluruh konfigurasi production yang digunakan pada server harus berasal dari folder `configs/`.
+Seluruh konfigurasi production harus mengacu pada folder `configs/`.
 
 | Configuration | Location |
 |---------------|----------|
-| Deployment Script | configs/deploy.sh |
 | PM2 | configs/ecosystem.config.cjs |
 | Nginx | configs/nginx/kmi-compro-site.conf |
 | Fail2Ban | configs/fail2ban/jail.local |
 | Environment Template | configs/environment/production.env.example |
 
-Konfigurasi pada server production harus selalu disinkronkan dengan repository apabila terdapat perubahan.
+> Script operasional berada pada folder `scripts/` di root project dan **bukan** di dalam folder `configs/`.
+
+---
+
+# Operational Workflow
+
+```text
+Developer
+      │
+      ▼
+Git Push
+      │
+      ▼
+SSH Production Server
+      │
+      ▼
+./scripts/deploy.sh
+      │
+      ▼
+Health Check
+      │
+      ▼
+Production Ready
+```
 
 ---
 
 # Documentation Principles
 
-Dokumentasi ini mengikuti prinsip-prinsip berikut:
+Dokumentasi ini mengikuti prinsip berikut:
 
-- **Single Source of Truth** untuk seluruh konfigurasi production.
-- **Infrastructure as Documentation**, yaitu konfigurasi penting disimpan bersama dokumentasi.
-- **Knowledge Preservation**, agar pengalaman deployment tidak hilang ketika terjadi pergantian administrator.
-- **Operational Consistency**, sehingga deployment dan maintenance dilakukan dengan prosedur yang sama.
-- **Continuous Improvement**, dokumentasi diperbarui setiap kali terdapat perubahan arsitektur atau proses operasional.
+- **Single Source of Truth** untuk konfigurasi production.
+- **Infrastructure as Code & Documentation**.
+- **Knowledge Preservation**.
+- **Operational Consistency**.
+- **Continuous Improvement**.
 
 ---
 
@@ -205,8 +238,8 @@ Dokumentasi ini mengikuti prinsip-prinsip berikut:
 
 | Component | Status |
 |-----------|:------:|
-| Ubuntu Server 24.04 LTS | ✅ |
-| Node.js 24.x | ✅ |
+| Ubuntu Server | ✅ |
+| Node.js | ✅ |
 | Next.js Standalone | ✅ |
 | PM2 | ✅ |
 | PM2 Startup | ✅ |
@@ -219,13 +252,11 @@ Dokumentasi ini mengikuti prinsip-prinsip berikut:
 | Fail2Ban | ✅ |
 | Automatic Security Updates | ⏳ |
 
-> **Catatan:** Status di atas mencerminkan kondisi saat dokumentasi ini dibuat. Perbarui apabila terdapat perubahan pada lingkungan production.
-
 ---
 
 # Change Management
 
-Setiap perubahan pada lingkungan production harus mengikuti alur berikut:
+Seluruh perubahan production mengikuti alur berikut.
 
 ```text
 Architecture Decision
@@ -237,7 +268,7 @@ Update Documentation
 Update Configuration
         │
         ▼
-Deploy to Production
+Deploy
         │
         ▼
 Verification
@@ -252,8 +283,8 @@ Update CHANGELOG
 
 | Document | Purpose |
 |----------|---------|
-| `/README.md` | Project Overview & Development Guide |
-| `docs/deployment/README.md` | Production Infrastructure Documentation |
+| /README.md | Project Overview & Development Guide |
+| docs/deployment/README.md | Production Infrastructure Documentation |
 
 ---
 
