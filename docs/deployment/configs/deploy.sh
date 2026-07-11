@@ -10,8 +10,8 @@
 
 set -e
 
-APP_NAME="kmi-compro-site"
-PROJECT_DIR="/root/kmi-compro-site"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 echo "========================================="
 echo "KMI Company Profile Deployment"
