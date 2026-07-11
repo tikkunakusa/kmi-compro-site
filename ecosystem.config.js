@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: "kmi-comp",
+            name: "kmi-compro-site",
             script: ".next/standalone/server.js",
             cwd: "/root/kmi-compro-site",
             instances: 1,
