@@ -13,7 +13,7 @@ export const FinanceConsultant = () => {
     return (
         <section id="finance" className="w-full max-w-container bg-primary items-center justify-center">
             <HeroTitleServices title={t("Title")} imageSrc="/images/header-services-finance.png" />
-            <div className="py-16 px-8">
+            <div className="py-8 md:py-16 px-4 md:px-8">
                 <h2 className="text-2xl font-bold tracking-tight text-fg-primary sm:text-xl">
                     {t("Title")}
                 </h2>

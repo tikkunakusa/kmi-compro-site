@@ -4,17 +4,17 @@ import { useTranslations } from "next-intl"
 export const TechConsultant = () => {
     const t = useTranslations("Services.Tech")
     const services = [
-        "Penetration Testing",
-        "Vulnerability and Risk Assessment",
-        "Performance and Stress Testing",
-        "IT Risk Management and Assessment",
-        "IT Governance based on COBIT Framework",
-        "Managed IT Services and Resource Support",
+        t("1"),
+        t("2"),
+        t("3"),
+        t("4"),
+        t("5"),
+        t("6"),
     ]
     return (
         <section id="tech" className="w-full max-w-container bg-primary items-center justify-center">
             <HeroTitleServices title={t("Title")} imageSrc="/images/header-services-tech.png" />
-            <div className="py-16 px-8">
+            <div className="py-8 md:py-16 px-4 md:px-8">
                 <h2 className="text-2xl font-bold tracking-tight text-fg-primary sm:text-xl">
                     {t("Title")}
                 </h2>

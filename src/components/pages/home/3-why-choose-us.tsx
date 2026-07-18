@@ -18,11 +18,11 @@ export const WhyChooseUs = () => {
     ]
     return (
         <section className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
-            <div className="py-16 px-8 text-center">
+            <div className="py-8 md:py-16 px-4 md:px-8 text-center">
                 <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("Title")}</h1>
                 <p className="mt-4 text-lg text-fg-secondary">{t("Subtitle")}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 px-8 pb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-8 px-4 md:px-8 pb-8">
                 {reasons.map((reason, index) => (
                     <div key={`reasons-${index}`} className="p-4 text-left grid gap-4 bg-[#243447] rounded-lg">
                         <div className="grid gap-2">

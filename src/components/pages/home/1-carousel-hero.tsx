@@ -74,7 +74,7 @@ export function HeroCarousel() {
             <div className="absolute inset-0 bg-gradient-to-r from-slate-700 to-slate-500" />
 
             {/* Content */}
-            <div className="relative z-10 flex items-center h-full px-10 md:px-20">
+            <div className="relative z-10 flex items-center h-full px-4 md:px-20">
                 <div className="max-w-2xl text-white">
                     <motion.div
                         key={current}

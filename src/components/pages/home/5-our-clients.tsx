@@ -6,7 +6,7 @@ export const OurClients = () => {
     const t = useTranslations("HomePage.OurClients")
     return (
         <section id="our-clients" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
-            <div className="py-16 px-8 text-center">
+            <div className="py-8 md:py-16 px-4 md:px-8 text-center">
                 <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("Title")}</h1>
                 <p className="mt-4 text-lg text-fg-secondary">{t("Subtitle")}</p>
             </div>
@@ -17,7 +17,7 @@ export const OurClients = () => {
                         key={index}
                         className="flex p-4 justify-center items-center group w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6"
                     >
-                        <div className="w-[90px] flex items-center justify-center">
+                        <div className="flex items-center justify-center">
                             <Image
                                 src={client.logo}
                                 alt={client.name}

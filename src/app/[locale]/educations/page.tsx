@@ -7,6 +7,15 @@ import { getTranslations } from "next-intl/server";
 
 export const revalidate = 60;
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'Education' });
+    return {
+        title: t('Title'),
+        description: t('Subtitle'),
+    };
+}
+
 const EducationPage = async () => {
     const t = await getTranslations("Education")
     const videos = await getSheetData();
