@@ -61,10 +61,10 @@ export const ContactUs = () => {
     }
     return (
         <section id="contact-us" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB]">
-            <div className="py-8 md:py-16 px-2 md:px-8 text-center">
+            <div className="py-8 md:py-16 px-4 md:px-8 text-center">
                 <h1 className="text-3xl font-bold tracking-tight text-fg-primary sm:text-4xl">{t("Title")}</h1>
                 <p className="mt-4 text-lg text-fg-secondary">{t("Subtitle")}</p>
-                <div className="text-left bg-white rounded-lg p-4 md:p-6 m-8">
+                <div className="text-left bg-white rounded-lg p-4 md:p-6 mx-2 mt-4 md:mx-auto md:mt-8 max-w-4xl shadow-sm">
                     <h2 className="underline text-fg-primary">{t("SendUsAMessage")}</h2>
                     <form className="mt-4 space-y-4" onSubmit={submitForm}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">

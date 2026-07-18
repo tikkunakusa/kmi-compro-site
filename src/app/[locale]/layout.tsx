@@ -30,8 +30,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "KMI - Konsultan Manajemen Indonesia",
+    metadataBase: new URL("https://konsultanmanajemenindonesia.com"),
+    title: {
+        template: "%s | KMI",
+        default: "KMI - Konsultan Manajemen Indonesia",
+    },
     description: "Mitra Strategis Anda di Bidang Hukum, Teknologi, Keuangan, dan Manajemen Perusahaan",
+    keywords: ["Konsultan Manajemen", "Konsultan IT", "Konsultan Hukum", "Konsultan Keuangan", "KMI", "Indonesia"],
+    openGraph: {
+        title: "KMI - Konsultan Manajemen Indonesia",
+        description: "Mitra Strategis Anda di Bidang Hukum, Teknologi, Keuangan, dan Manajemen Perusahaan",
+        url: "https://konsultanmanajemenindonesia.com",
+        siteName: "KMI",
+        locale: "id_ID",
+        type: "website",
+    },
 };
 
 export const viewport: Viewport = {
@@ -51,7 +64,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
             <link rel="manifest" href="/site.webmanifest" />
-            <body className={cx(inter.variable, "bg-primary antialiased")}>
+            <body suppressHydrationWarning className={cx(inter.variable, "bg-primary antialiased")}>
                 <NextIntlClientProvider>
                     <RouteProvider>
                         <Theme>

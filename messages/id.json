@@ -151,14 +151,20 @@
         },
         "Tech": {
             "Title": "Konsultan IT",
-            "Subtitle": "Layanan konsultasi IT kami berfokus pada identifikasi, evaluasi, dan pengelolaan risiko teknologi, untuk mendukung organisasi dalam membangun lingkungan IT yang aman, andal, dan sesuai dengan regulasi."
+            "Subtitle": "Layanan konsultasi IT kami berfokus pada identifikasi, evaluasi, dan pengelolaan risiko teknologi, untuk mendukung organisasi dalam membangun lingkungan IT yang aman, andal, dan sesuai dengan regulasi.",
+            "1": "Penetration Testing (Uji Penetrasi)",
+            "2": "Penilaian Kerentanan dan Risiko (Vulnerability and Risk Assessment)",
+            "3": "Pengujian Kinerja dan Beban (Performance and Stress Testing)",
+            "4": "Manajemen dan Penilaian Risiko IT",
+            "5": "Tata Kelola IT Berdasarkan Kerangka COBIT",
+            "6": "Layanan IT Terkelola dan Dukungan Sumber Daya"
         },
         "Financial": {
             "Title": "Konsultan Keuangan dan Akuntansi",
             "Subtitle": "Layanan konsultasi Keuangan & Akuntansi kami menghadirkan solusi terintegrasi yang mencakup pelaporan dan analisis keuangan, implementasi sistem akuntansi, kerangka tata kelola, serta pengembangan kapasitas tim. Dengan pendekatan yang berbasis standar dan strategis, kami membantu meningkatkan transparansi, kepatuhan, serta kualitas pengambilan keputusan, sehingga organisasi dapat membangun fondasi keuangan yang berkelanjutan dan mendorong pertumbuhan jangka panjang.",
             "1": "Penyusunan Laporan Keuangan - laporan keuangan internal yang sesuai standar dan dapat diandalkan",
             "2": "Analisis Keuangan — analisis arus kas, biaya, dan profitabilitas untuk mendukung pengambilan keputusan",
-            "3": "Implementasi Sistem Akuntansi — penyelesaian sistem akuntansi yang sesuai dengan standar dan kebutuhan organisasi    Sistem Akuntansi & Pembukuan — perancangan dan implementasi sistem akuntansi yang terstandarisasi",
+            "3": "Sistem Akuntansi & Pembukuan — perancangan dan implementasi sistem akuntansi yang terstandarisasi",
             "4": "Kepatuhan & Tata Kelola — penyusunan kebijakan, SOP, dan kerangka kepatuhan",
             "5": "Pelatihan & Pengembangan Kapasitas — workshop dan pelatihan untuk meningkatkan kompetensi keuangan"
         }

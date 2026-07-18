@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl"
 export const AboutUs = () => {
     const t = useTranslations("HomePage.Deliverables")
     return (
-        <section id="about-us" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB] p-8">
+        <section id="about-us" className="w-full max-w-container items-center justify-center text-center bg-[#F9FAFB] p-4 md:p-8">
             <div className="bg-primary rounded-xl p-4 md:p-8">
                 <h3 className="text-xl font-bold tracking-tight text-fg-primary sm:text-2xl">
                     {t("Title")}
