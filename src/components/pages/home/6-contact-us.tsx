@@ -25,35 +25,9 @@ export const ContactUs = () => {
             const service = t("MyServiceIs", { service: formValue.services === "legal" ? "Legal Consultation" : formValue.services === "tech" ? "IT Consultation" : formValue.services === "management" ? "Management Consultation" : "Financial & Accounting Consultation" });
             const message = t("IWantToDiscuss", { message: formValue.message });
             const contactInfo = t("ContactMe", { phone_number: formValue.phone_number, email: formValue.email });
-            const fullMessage = `${name} ${service} ${message}`;
-            const fullMailtoLink = `mailto:admin@konsultanmanajemenindonesia.com?body=${encodeURIComponent(fullMessage)}%0D%0A%0D%0A${encodeURIComponent(contactInfo)}`;
+            const fullMessage = `${name} ${service} ${message}`;//"https://wa.me/whatsappphonenumber?text=urlencodedtext"
+            const fullMailtoLink = `https://wa.me/+628113198182?text=${encodeURIComponent(fullMessage)}%0D%0A%0D%0A${encodeURIComponent(contactInfo)}`;
             window.open(fullMailtoLink, '_blank');
-
-            // const response = await fetch("/api/contact-us", {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify({
-            //         ...formValue,
-            //         name: `${formValue.first_name} ${formValue.last_name}`,
-            //         website: "",
-            //         _formTime: formTime,
-            //     }),
-            // });
-            // if (response.ok) {
-            //     alert("Inquiry sent successfully!");
-            //     setFormValue({
-            //         first_name: "",
-            //         last_name: "",
-            //         phone_number: "",
-            //         email: "",
-            //         services: "legal",
-            //         message: "",
-            //     });
-            // } else {
-            //     alert("Failed to send inquiry. Please try again.");
-            // }
         } catch (error) {
             console.error("Error submitting form:", error);
             alert("An error occurred while sending your inquiry. Please try again.");
