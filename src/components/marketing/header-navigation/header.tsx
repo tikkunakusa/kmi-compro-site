@@ -2,14 +2,13 @@
 
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { usePathname, Link } from "@/i18n/navigation";
 import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { DropdownMenuSimple } from "@/components/marketing/header-navigation/dropdown-header-navigation";
 import { cx } from "@/utils/cx";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 type HeaderNavItem = {
     label: string;
@@ -19,25 +18,21 @@ type HeaderNavItem = {
 
 const LanguageSwitcher = () => {
     const pathname = usePathname();
-    const segments = pathname.split('/');
-    const currentLocale = segments[1];
-
-    const switchLocale = (locale: string) => {
-        segments[1] = locale;
-        return segments.join('/');
-    };
+    const currentLocale = useLocale();
 
     return (
         <div className="flex items-center gap-2 ml-4">
             <Link
-                href={switchLocale('id')}
+                href={pathname}
+                locale="id"
                 className={cx("text-sm font-semibold", currentLocale === 'id' ? "text-primary" : "text-secondary")}
             >
                 ID
             </Link>
             <span className="text-secondary">|</span>
             <Link
-                href={switchLocale('en')}
+                href={pathname}
+                locale="en"
                 className={cx("text-sm font-semibold", currentLocale === 'en' ? "text-primary" : "text-secondary")}
             >
                 EN
@@ -53,9 +48,9 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
     if (props.href) {
         return (
             <li>
-                <a href={props.href} className="flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover">
+                <Link href={props.href} className="flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover">
                     {props.label}
-                </a>
+                </Link>
             </li>
         );
     }
@@ -160,12 +155,12 @@ export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProp
                                                 </AriaPopover>
                                             </AriaDialogTrigger>
                                         ) : (
-                                            <a
+                                            <Link
                                                 href={navItem.href}
                                                 className="flex cursor-pointer items-center gap-0.5 rounded-lg px-1.5 py-1 text-md font-semibold text-secondary outline-focus-ring transition duration-100 ease-linear hover:text-secondary_hover focus:outline-offset-2 focus-visible:outline-2"
                                             >
                                                 <span className="px-0.5">{navItem.label}</span>
-                                            </a>
+                                            </Link>
                                         )}
                                     </li>
                                 ))}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/base/buttons/button";
 import { ChevronLeft, ChevronRight } from "@untitledui/icons";
 import { useTranslations } from 'next-intl';
+import { Link } from "@/i18n/navigation";
 
 export function HeroCarousel() {
     const t = useTranslations();
@@ -103,7 +104,7 @@ export function HeroCarousel() {
                                 __html: slides[current].description,
                             }}
                         />
-                        <a href="/#contact-us">
+                        <Link href="/#contact-us">
                             <Button
                                 onClick={() => {
                                     document
@@ -114,7 +115,7 @@ export function HeroCarousel() {
                             >
                                 {t("General.ContactUs")}
                             </Button>
-                        </a>
+                        </Link>
                     </motion.div>
 
                     {/* Indicators */}

@@ -100,6 +100,13 @@ npm run build
 npm run start
 ```
 
+### Run in Deployment
+
+Masuk ke server ssh dan jalankan:
+```bash
+./scripts/deploy.sh
+```
+
 ---
 
 ## Environment Variables
