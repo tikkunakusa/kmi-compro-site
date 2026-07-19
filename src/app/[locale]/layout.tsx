@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         default: "KMI - Konsultan Manajemen Indonesia",
     },
     description: "Mitra Strategis Anda di Bidang Hukum, Teknologi, Keuangan, dan Manajemen Perusahaan",
-    keywords: ["Konsultan Manajemen", "Konsultan IT", "Konsultan Hukum", "Konsultan Keuangan", "KMI", "Indonesia"],
+    keywords: ["ISO", "Pentest", "Legal", "Legal Consultant", "Accounting dan Finance", "Accounting dan Finance Consultant", "IT", "IT Consultant", "Information Technology", "Konsultan ISO", "Konsultan Legal", "Konsultan IT", "Konsultan Hukum", "Konsultan Keuangan dan Akuntansi", "Konsultan Manajemen Indonesia", "KMI"],
     openGraph: {
         title: "KMI - Konsultan Manajemen Indonesia",
         description: "Mitra Strategis Anda di Bidang Hukum, Teknologi, Keuangan, dan Manajemen Perusahaan",
