@@ -1,16 +1,5 @@
-import {
-    BookmarkCheck,
-    Bank,
-    Database03,
-    Briefcase01,
-    ShieldTick,
-    File06,
-    LayersThree01,
-    BarChart01,
-    FileCode01,
-    SearchMd,
-    CheckCircle,
-} from "@untitledui/icons";
+import * as UntitleduiIcons from "@untitledui/icons";
+import { Bank } from "@untitledui/icons";
 import type { ComponentType, SVGProps } from "react";
 
 export type ServiceItem = {
@@ -29,47 +18,37 @@ export type ServiceItem = {
     active?: boolean | string;
 };
 
-export const getServiceIcon = (iconName?: string): ComponentType<SVGProps<SVGSVGElement>> => {
-    switch (iconName?.toLowerCase().trim()) {
-        case "bookmarkcheck":
-        case "bookmark":
-        case "legal":
-            return BookmarkCheck;
-        case "briefcase01":
-        case "briefcase":
-        case "management":
-            return Briefcase01;
-        case "database03":
-        case "database":
-        case "tech":
-        case "it":
-            return Database03;
-        case "bank":
-        case "finance":
-        case "financial":
-            return Bank;
-        case "shield":
-        case "shieldtick":
-            return ShieldTick;
-        case "file":
-        case "file06":
-            return File06;
-        case "layers":
-        case "layersthree01":
-            return LayersThree01;
-        case "chart":
-        case "barchart":
-        case "barchart01":
-            return BarChart01;
-        case "code":
-        case "filecode01":
-            return FileCode01;
-        case "search":
-        case "searchmd":
-            return SearchMd;
-        default:
-            return CheckCircle;
+// Build case-insensitive and normalized lookup map for all 1000+ Untitledui icons
+const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {};
+
+for (const [key, iconComponent] of Object.entries(UntitleduiIcons)) {
+    if (typeof iconComponent === "function" || typeof iconComponent === "object") {
+        iconMap[key.toLowerCase()] = iconComponent as ComponentType<SVGProps<SVGSVGElement>>;
+        iconMap[key.toLowerCase().replace(/[^a-z0-9]/g, "")] = iconComponent as ComponentType<SVGProps<SVGSVGElement>>;
     }
+}
+
+// Friendly aliases for convenience
+iconMap["legal"] = UntitleduiIcons.BookmarkCheck ?? Bank;
+iconMap["management"] = UntitleduiIcons.Briefcase01 ?? Bank;
+iconMap["tech"] = UntitleduiIcons.Database03 ?? Bank;
+iconMap["it"] = UntitleduiIcons.Database03 ?? Bank;
+iconMap["finance"] = Bank;
+iconMap["financial"] = Bank;
+iconMap["building"] = Bank;
+iconMap["bank"] = Bank;
+
+/**
+ * Returns icon component dynamically by name, defaulting to Bank (building icon) if empty or not found.
+ */
+export const getServiceIcon = (iconName?: string): ComponentType<SVGProps<SVGSVGElement>> => {
+    if (!iconName) {
+        return Bank;
+    }
+    const clean = iconName.trim().toLowerCase();
+    const cleanAlphaNum = clean.replace(/[^a-z0-9]/g, "");
+
+    return iconMap[clean] || iconMap[cleanAlphaNum] || Bank;
 };
 
 export const defaultServices = (locale: string = "id"): ServiceItem[] => {
@@ -93,7 +72,7 @@ export const defaultServices = (locale: string = "id"): ServiceItem[] => {
                 image: "/images/header-services-legal.png",
                 icon: "BookmarkCheck",
                 partnerTitle: "Our Partner",
-                partnerDesc: "In collaboration with our trusted legal partner, Ichsan & Erlitha Law Firm.",
+                partnerDesc: "In collaboration with our trusted legal partner, Ichsan & Erlitha Attorneys at Law.",
                 partnerLogo: "/images/ichsan-erlitha-logo.png",
                 partnerUrl: "https://www.ichsanerlitha.com",
                 active: true,
@@ -172,9 +151,9 @@ export const defaultServices = (locale: string = "id"): ServiceItem[] => {
             image: "/images/header-services-legal.png",
             icon: "BookmarkCheck",
             partnerTitle: "Mitra Kami",
-            partnerDesc: "Bekerja sama dengan mitra hukum terpercaya kami, Ichsan & Erlitha Law Firm.",
+            partnerDesc: "Bekerja sama dengan mitra hukum terpercaya kami, Ichsan & Erlitha Attorneys at Law.",
             partnerLogo: "/images/ichsan-erlitha-logo.png",
-            partnerUrl: "https://www.ichsanerlithalawfirm.com",
+            partnerUrl: "https://www.ichsanerlitha.com",
             active: true,
         },
         {

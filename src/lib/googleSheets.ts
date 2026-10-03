@@ -113,8 +113,9 @@ export const getServicesSheetData = async (locale: string = "id"): Promise<Servi
             const detail_en = row[7]?.toString()?.trim() || "";
             const items_id_raw = row[8]?.toString() || "";
             const items_en_raw = row[9]?.toString() || "";
-            const image = formatImageUrl(row[10]?.toString()?.trim() || "");
-            const icon = row[11]?.toString()?.trim() || "BookmarkCheck";
+            const rawImage = row[10]?.toString()?.trim() || "";
+            const image = rawImage ? formatImageUrl(rawImage) : "";
+            const icon = row[11]?.toString()?.trim() || "Bank";
             const partnerTitle = row[12]?.toString()?.trim() || undefined;
             const partnerDesc = row[13]?.toString()?.trim() || undefined;
             const partnerLogo = row[14]?.toString()?.trim() ? formatImageUrl(row[14]?.toString()?.trim()) : undefined;
