@@ -27,62 +27,74 @@ jobs:
           script_stop: true
           command_timeout: 15m
           script: |
-            # Set target directory (default to /root/kmi-compro-site if secret not set)
-            TARGET_DIR="${{ secrets.VPS_TARGET_DIR || '/root/kmi-compro-site' }}"
+            # 1. Setup Environment Paths
+            export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin:$HOME/.local/share/mise/shims:$PATH"
             
+            # Safely source profiles without exiting on non-zero
+            if [ -f "$HOME/.bashrc" ]; then . "$HOME/.bashrc" 2>/dev/null || true; fi
+            if [ -f "$HOME/.profile" ]; then . "$HOME/.profile" 2>/dev/null || true; fi
+            if [ -f "$HOME/.nvm/nvm.sh" ]; then . "$HOME/.nvm/nvm.sh" 2>/dev/null || true; fi
+
+            TARGET_DIR="${{ secrets.VPS_TARGET_DIR || '/root/kmi-compro-site' }}"
+            REPO_URL="https://github.com/tikkunakusa/kmi-compro-site.git"
+
             echo "🚀 Starting Deployment on Domainesia VPS..."
             echo "📂 Target Directory: $TARGET_DIR"
 
-            # Load environment variables (mise / nvm / standard paths)
-            export PATH=$PATH:/usr/local/bin:/usr/bin:~/.local/bin:~/.local/share/mise/shims:~/.nvm/versions/node/$(ls ~/.nvm/versions/node 2>/dev/null | tail -n 1)/bin
-            [ -f "$HOME/.profile" ] && source "$HOME/.profile"
-            [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
-            [ -f "$HOME/.zshrc" ] && source "$HOME/.zshrc"
-
-            # Check if directory exists
+            # 2. Check or Clone Repository
             if [ ! -d "$TARGET_DIR" ]; then
-              echo "❌ Error: Directory $TARGET_DIR not found on VPS."
-              echo "Please clone the repository first into $TARGET_DIR"
-              exit 1
+              echo "📂 Directory $TARGET_DIR does not exist. Cloning repository..."
+              git clone "$REPO_URL" "$TARGET_DIR"
             fi
 
             cd "$TARGET_DIR"
 
-            # Check node and pm2 availability
-            echo "🔍 Checking runtime versions:"
-            node -v || echo "node not in default path"
-            npm -v || echo "npm not in default path"
-            pm2 -v || echo "pm2 not in default path"
+            # Ensure git safe directory
+            git config --global --add safe.directory "$TARGET_DIR" || true
 
-            # Pull latest changes
-            echo "📥 Pulling latest code from main branch..."
+            echo "🔍 Environment Info:"
+            echo "Node: $(node -v 2>/dev/null || echo 'Not Found')"
+            echo "NPM: $(npm -v 2>/dev/null || echo 'Not Found')"
+            echo "PM2: $(pm2 -v 2>/dev/null || echo 'Not Found')"
+            echo "Current Dir: $(pwd)"
+
+            # 3. Pull latest code
+            echo "📥 Fetching and syncing code from branch main..."
             git fetch origin main
             git reset --hard origin/main
 
-            # Install dependencies
-            echo "📦 Installing dependencies..."
+            # 4. Install dependencies
+            echo "📦 Installing npm dependencies..."
             npm install --legacy-peer-deps
 
-            # Build Next.js application
-            echo "🏗️ Building Next.js application..."
+            # 5. Build Next.js
+            echo "🏗️ Building Next.js Standalone..."
             npm run build
 
-            # Prepare Standalone build assets
+            # 6. Prepare Standalone static files
             echo "📁 Copying static and public assets for standalone server..."
             mkdir -p .next/standalone/.next
             cp -R .next/static .next/standalone/.next/
             cp -R public .next/standalone/
 
-            # Reload / Restart PM2
-            echo "🔄 Restarting application with PM2..."
+            # 7. Restart or start PM2 process
+            echo "🔄 Managing PM2 process..."
             if pm2 describe kmi-compro-site > /dev/null 2>&1; then
-              pm2 reload kmi-compro-site || pm2 restart kmi-compro-site
+              echo "Restarting existing PM2 process 'kmi-compro-site'..."
+              pm2 restart kmi-compro-site --update-env
             else
-              echo "⚙️ Initializing PM2 process..."
-              pm2 start docs/deployment/configs/ecosystem.config.cjs || pm2 start ecosystem.config.js || pm2 start "node .next/standalone/server.js" --name "kmi-compro-site"
+              echo "Starting new PM2 process 'kmi-compro-site'..."
+              if [ -f "ecosystem.config.cjs" ]; then
+                pm2 start ecosystem.config.cjs
+              elif [ -f "docs/deployment/configs/ecosystem.config.js" ]; then
+                pm2 start docs/deployment/configs/ecosystem.config.js
+              else
+                pm2 start "node .next/standalone/server.js" --name "kmi-compro-site"
+              fi
             fi
 
-            # Save PM2 state
             pm2 save
 
-            echo "✅ Deployment finished successfully!"
+            echo "========================================="
+            echo "🎉 Deployment completed successfully!"
+            echo "========================================="
