@@ -1,0 +1,88 @@
+name: Deploy to Domainesia VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production VPS
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Domainesia VPS via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script_stop: true
+          command_timeout: 15m
+          script: |
+            # Set target directory (default to /root/kmi-compro-site if secret not set)
+            TARGET_DIR="${{ secrets.VPS_TARGET_DIR || '/root/kmi-compro-site' }}"
+            
+            echo "🚀 Starting Deployment on Domainesia VPS..."
+            echo "📂 Target Directory: $TARGET_DIR"
+
+            # Load environment variables (mise / nvm / standard paths)
+            export PATH=$PATH:/usr/local/bin:/usr/bin:~/.local/bin:~/.local/share/mise/shims:~/.nvm/versions/node/$(ls ~/.nvm/versions/node 2>/dev/null | tail -n 1)/bin
+            [ -f "$HOME/.profile" ] && source "$HOME/.profile"
+            [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+            [ -f "$HOME/.zshrc" ] && source "$HOME/.zshrc"
+
+            # Check if directory exists
+            if [ ! -d "$TARGET_DIR" ]; then
+              echo "❌ Error: Directory $TARGET_DIR not found on VPS."
+              echo "Please clone the repository first into $TARGET_DIR"
+              exit 1
+            fi
+
+            cd "$TARGET_DIR"
+
+            # Check node and pm2 availability
+            echo "🔍 Checking runtime versions:"
+            node -v || echo "node not in default path"
+            npm -v || echo "npm not in default path"
+            pm2 -v || echo "pm2 not in default path"
+
+            # Pull latest changes
+            echo "📥 Pulling latest code from main branch..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Install dependencies
+            echo "📦 Installing dependencies..."
+            npm install --legacy-peer-deps
+
+            # Build Next.js application
+            echo "🏗️ Building Next.js application..."
+            npm run build
+
+            # Prepare Standalone build assets
+            echo "📁 Copying static and public assets for standalone server..."
+            mkdir -p .next/standalone/.next
+            cp -R .next/static .next/standalone/.next/
+            cp -R public .next/standalone/
+
+            # Reload / Restart PM2
+            echo "🔄 Restarting application with PM2..."
+            if pm2 describe kmi-compro-site > /dev/null 2>&1; then
+              pm2 reload kmi-compro-site || pm2 restart kmi-compro-site
+            else
+              echo "⚙️ Initializing PM2 process..."
+              pm2 start docs/deployment/configs/ecosystem.config.cjs || pm2 start ecosystem.config.js || pm2 start "node .next/standalone/server.js" --name "kmi-compro-site"
+            fi
+
+            # Save PM2 state
+            pm2 save
+
+            echo "✅ Deployment finished successfully!"
