@@ -52,12 +52,16 @@ export const viewport: Viewport = {
     colorScheme: "light",
 };
 
+import { getServicesSheetData } from "@/lib/googleSheets";
+
 export default async function LocaleLayout({ children, params }: Props) {
     // Ensure that the incoming `locale` is valid
     const { locale } = await params;
     if (!hasLocale(routing.locales, locale)) {
         notFound();
     }
+    const services = await getServicesSheetData(locale);
+
     return (
         <html lang="en" suppressHydrationWarning className={headingFont.variable}>
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -68,7 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <NextIntlClientProvider>
                     <RouteProvider>
                         <Theme>
-                            <Header className="bg-primary" />
+                            <Header className="bg-primary" services={services} />
                             {children}
                         </Theme>
                     </RouteProvider>

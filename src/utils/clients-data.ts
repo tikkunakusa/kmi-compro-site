@@ -1,6 +1,29 @@
 export type Client = {
+    id?: string;
     name: string;
     logo: string;
+    active?: boolean | string;
+};
+
+/**
+ * Formats image URLs, converting Google Drive sharing links to direct image source URLs.
+ */
+export const formatImageUrl = (url: string): string => {
+    if (!url) return "";
+    const trimmed = url.trim();
+    
+    // Convert Google Drive view/share URL
+    const driveFileMatch = trimmed.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (driveFileMatch && driveFileMatch[1]) {
+        return `https://lh3.googleusercontent.com/d/${driveFileMatch[1]}`;
+    }
+
+    const driveIdMatch = trimmed.match(/drive\.google\.com\/(?:open|uc)\?(?:[^&]+&)*id=([a-zA-Z0-9_-]+)/);
+    if (driveIdMatch && driveIdMatch[1]) {
+        return `https://lh3.googleusercontent.com/d/${driveIdMatch[1]}`;
+    }
+
+    return trimmed;
 };
 
 export const clients: Client[] = [

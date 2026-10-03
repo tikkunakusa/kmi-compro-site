@@ -36,7 +36,7 @@ export const LegalConsultant = () => {
                     </h2>
                     <p className="mt-4 text-md text-fg-secondary">
                         {t("OurPartnerDescription")}
-                        <Image src="/images/ichsan-erlitha-logo.png" alt="Ichsan & Erlitha Attorneys at Law Logo" width={300} height={200} className="mt-4" />
+                        <Image src="/images/ichsan-erlitha-logo.png" alt="Ichsan & Erlitha Law Firm Logo" width={300} height={200} className="mt-4" />
                     </p>
                     <Button
                         className="mt-4"

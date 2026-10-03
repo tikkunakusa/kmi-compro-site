@@ -72,19 +72,22 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
     );
 };
 
+import { ServiceItem } from "@/utils/services-data";
+
 interface HeaderProps {
     items?: HeaderNavItem[];
+    services?: ServiceItem[];
     isFullWidth?: boolean;
     isFloating?: boolean;
     className?: string;
 }
 
-export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProps) => {
+export const Header = ({ items, services, isFullWidth, isFloating, className }: HeaderProps) => {
     const t = useTranslations();
 
     const headerNavItems: HeaderNavItem[] = [
         { label: t("Header.List.Home"), href: "/" },
-        { label: t("Header.List.Services"), href: "/services", menu: <DropdownMenuSimple /> },
+        { label: t("Header.List.Services"), href: "/services", menu: <DropdownMenuSimple services={services} /> },
         { label: t("Header.List.Education"), href: "/educations" },
         { label: t("Header.List.AboutUs"), href: "/#about-us" },
         { label: t("Header.List.Contact"), href: "/#contact-us" },
@@ -96,21 +99,24 @@ export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProp
         <header
             ref={headerRef}
             className={cx(
-                "relative flex h-18 w-full items-center justify-center md:h-20",
+                "relative z-50 flex h-20 md:h-24 w-full items-center justify-center",
                 isFloating && "h-16 md:h-19 md:pt-3",
                 isFullWidth && !isFloating ? "has-aria-expanded:bg-primary" : "max-md:has-aria-expanded:bg-primary",
+                "max-md:has-aria-expanded:before:content-[''] max-md:has-aria-expanded:before:fixed max-md:has-aria-expanded:before:inset-0 max-md:has-aria-expanded:before:bg-primary max-md:has-aria-expanded:before:-z-10 max-md:has-aria-expanded:before:pointer-events-none",
                 className,
             )}
         >
             <div className="flex size-full max-w-container flex-1 items-center pr-3 pl-4 md:px-8">
                 <div
                     className={cx(
-                        "flex w-full justify-between gap-4",
+                        "flex w-full items-center justify-between gap-4",
                         isFloating && "ring-secondary_alt md:rounded-2xl md:bg-primary md:py-3 md:pr-3 md:pl-4 md:shadow-xs md:ring-1",
                     )}
                 >
                     <div className="flex flex-1 items-center justify-between">
-                        <UntitledLogo className="h-8" />
+                        <Link href="/" aria-label="Home" className="flex items-center">
+                            <UntitledLogo />
+                        </Link>
 
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
@@ -202,14 +208,14 @@ export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProp
                         </AriaButton>
                         <AriaPopover
                             triggerRef={headerRef}
-                            className="h-calc(100%-72px) scrollbar-hide w-full overflow-y-auto shadow-lg md:hidden"
+                            className="h-[calc(100dvh-5rem)] md:h-[calc(100dvh-6rem)] scrollbar-hide w-full overflow-y-auto shadow-lg md:hidden bg-primary overscroll-none pb-20"
                             offset={0}
                             crossOffset={20}
                             containerPadding={0}
                             placement="bottom left"
                         >
-                            <AriaDialog className="outline-hidden">
-                                <nav className="w-full bg-primary shadow-lg">
+                            <AriaDialog className="outline-hidden min-h-full h-full">
+                                <nav className="w-full min-h-full h-full bg-primary shadow-lg">
                                     <ul className="flex flex-col gap-0.5 py-5">
                                         {finalItems.map((navItem) =>
                                             navItem.menu ? (

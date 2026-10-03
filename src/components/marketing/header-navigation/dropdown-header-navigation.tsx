@@ -1,44 +1,32 @@
-import { BookmarkCheck, Bank, Database03, Briefcase01 } from "@untitledui/icons";
+import { ServiceItem, defaultServices, getServiceIcon } from "@/utils/services-data";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
-import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
-export const DropdownMenuSimple = () => {
-    const t = useTranslations();
-    const items = [
-        {
-            title: t("Header.Services.Legal.Title"),
-            subtitle: t("Header.Services.Legal.Subtitle"),
-            href: "/services#legal",
-            Icon: BookmarkCheck,
-        },
-        {
-            title: t("Header.Services.Management.Title"),
-            subtitle: t("Header.Services.Management.Subtitle"),
-            href: "/services#management",
-            Icon: Briefcase01,
-        },
-        {
-            title: t("Header.Services.IT.Title"),
-            subtitle: t("Header.Services.IT.Subtitle"),
-            href: "/services#tech",
-            Icon: Database03,
-        },
-        {
-            title: t("Header.Services.Financial.Title"),
-            subtitle: t("Header.Services.Financial.Subtitle"),
-            href: "/services#finance",
-            Icon: Bank,
-        }
-    ];
+interface DropdownMenuSimpleProps {
+    services?: ServiceItem[];
+}
+
+export const DropdownMenuSimple = ({ services }: DropdownMenuSimpleProps) => {
+    const locale = useLocale();
+    const serviceList = services && services.length > 0 ? services : defaultServices(locale);
+
     return (
         <div className="px-3 pb-2 md:max-w-84 md:p-0">
             <nav className="overflow-hidden rounded-2xl bg-primary py-2 shadow-xs ring-1 ring-secondary_alt md:p-2 md:shadow-lg">
                 <ul className="flex flex-col gap-0.5">
-                    {items.map(({ title, subtitle, href, Icon }) => (
-                        <li key={title}>
-                            <NavMenuItemLink icon={Icon} title={title} subtitle={subtitle} href={href} />
-                        </li>
-                    ))}
+                    {serviceList.map((service) => {
+                        const Icon = getServiceIcon(service.icon);
+                        return (
+                            <li key={service.id || service.slug}>
+                                <NavMenuItemLink
+                                    icon={Icon}
+                                    title={service.title}
+                                    subtitle={service.subtitle}
+                                    href={`/services#${service.slug}`}
+                                />
+                            </li>
+                        );
+                    })}
                 </ul>
             </nav>
         </div>

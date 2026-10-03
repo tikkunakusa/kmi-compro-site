@@ -1,30 +1,16 @@
 import { Button } from "@/components/base/buttons/button"
-import { useTranslations } from 'next-intl';
+import { ServiceItem, defaultServices } from "@/utils/services-data";
+import { useTranslations, useLocale } from 'next-intl';
 
-export const CompanyServices = () => {
+interface CompanyServicesProps {
+    services?: ServiceItem[];
+}
+
+export const CompanyServices = ({ services }: CompanyServicesProps) => {
     const t = useTranslations();
-    const services = [
-        {
-            title: t("Header.Services.Legal.Title"),
-            description: t("Header.Services.Legal.Detail"),
-            href: "/services#legal",
-        },
-        {
-            title: t("Header.Services.Management.Title"),
-            description: t("Header.Services.Management.Detail"),
-            href: "/services#management",
-        },
-        {
-            title: t("Header.Services.IT.Title"),
-            description: t("Header.Services.IT.Detail"),
-            href: "/services#tech",
-        },
-        {
-            title: t("Header.Services.Financial.Title"),
-            description: t("Header.Services.Financial.Detail"),
-            href: "/services#finance",
-        },
-    ]
+    const locale = useLocale();
+    const serviceList = services && services.length > 0 ? services : defaultServices(locale);
+
     return (
         <section className="w-full max-w-container bg-primary items-center justify-center text-center">
             <div className="py-8 md:py-16 px-4 md:px-8 text-center">
@@ -32,18 +18,18 @@ export const CompanyServices = () => {
                 <p className="mt-4 text-lg text-fg-secondary">{t("HomePage.Solutions.Subtitle")}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 md:gap-8 px-4 md:px-8 pb-8">
-                {services.map((service, index) => (
-                    <div key={`services-${index}`} className="p-4 text-left grid gap-4">
+                {serviceList.map((service, index) => (
+                    <div key={`services-${service.id || service.slug || index}`} className="p-4 text-left grid gap-4">
                         <div className="grid gap-2">
                             <h4 className="font-semibold text-2xl tracking-tight text-fg-primary sm:text-xl">{service.title}</h4>
-                            <p className="text-fg-secondary text-sm text-justify">{service.description}</p>
+                            <p className="text-fg-secondary text-sm text-justify">{service.detail || service.subtitle}</p>
                         </div>
-                        <Button size="md" className="self-start" href={service.href}>
+                        <Button size="md" className="self-start" href={`/services#${service.slug}`}>
                             {t("General.LearnMore")}
                         </Button>
                     </div>
                 ))}
             </div>
         </section>
-    )
-}   
+    );
+};   
