@@ -99,7 +99,7 @@ export const Header = ({ items, services, isFullWidth, isFloating, className }: 
         <header
             ref={headerRef}
             className={cx(
-                "relative z-50 flex h-[20vh] w-full items-center justify-center",
+                "relative z-50 flex h-20 md:h-24 w-full items-center justify-center",
                 isFloating && "h-16 md:h-19 md:pt-3",
                 isFullWidth && !isFloating ? "has-aria-expanded:bg-primary" : "max-md:has-aria-expanded:bg-primary",
                 "max-md:has-aria-expanded:before:content-[''] max-md:has-aria-expanded:before:fixed max-md:has-aria-expanded:before:inset-0 max-md:has-aria-expanded:before:bg-primary max-md:has-aria-expanded:before:-z-10 max-md:has-aria-expanded:before:pointer-events-none",
@@ -114,7 +114,9 @@ export const Header = ({ items, services, isFullWidth, isFloating, className }: 
                     )}
                 >
                     <div className="flex flex-1 items-center justify-between">
-                        <UntitledLogo className="h-[10vh]" />
+                        <Link href="/" aria-label="Home" className="flex items-center">
+                            <UntitledLogo />
+                        </Link>
 
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
@@ -206,7 +208,7 @@ export const Header = ({ items, services, isFullWidth, isFloating, className }: 
                         </AriaButton>
                         <AriaPopover
                             triggerRef={headerRef}
-                            className="h-[calc(100dvh-20vh)] scrollbar-hide w-full overflow-y-auto shadow-lg md:hidden bg-primary overscroll-none pb-20"
+                            className="h-[calc(100dvh-5rem)] md:h-[calc(100dvh-6rem)] scrollbar-hide w-full overflow-y-auto shadow-lg md:hidden bg-primary overscroll-none pb-20"
                             offset={0}
                             crossOffset={20}
                             containerPadding={0}

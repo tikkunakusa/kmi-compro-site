@@ -107,7 +107,7 @@ export default function Footer() {
                 </svg>
               </Link>
 
-              <Link href="https://www.tiktok.com/@ie.attorneys.at.law" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.tiktok.com/@ie.lawfirm" target="_blank" rel="noopener noreferrer">
                 {/* TikTok */}
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M16 1c1.1 2.3 3.4 3.8 6 4v4c-2.1-.1-4-.7-6-1.9V15a7 7 0 11-7-7c.5 0 1 .05 1.5.15v4.1a3 3 0 10 2.5 2.95V1h3z" />
